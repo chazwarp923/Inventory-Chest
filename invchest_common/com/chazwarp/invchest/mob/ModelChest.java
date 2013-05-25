@@ -1,4 +1,4 @@
-package com.chazwarp.mob;
+package com.chazwarp.invchest.mob;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
