@@ -1,0 +1,21 @@
+[
+{
+  "modid": "InvChest",
+  "name": "Inventory Chest",
+  "description": "New chests that allow you to simply click a button and store your entire inventory.\nIt also adds the Player Chest which allows admins to link a chest to a players inventory.",
+  "version": "0.01",
+  "mcversion": "1.5.1",
+  "url": "",
+  "updateUrl": "",
+  "authors": [
+    "chazwarp923"
+  ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
