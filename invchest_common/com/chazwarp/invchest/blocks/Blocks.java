@@ -1,6 +1,7 @@
 package com.chazwarp.invchest.blocks;
 
 import com.chazwarp.invchest.lib.BlockInfo;
+import com.chazwarp.invchest.tileentity.TileEntityInvChest;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -30,5 +31,9 @@ public class Blocks {
 		public static void addChestAdmName() {
 			LanguageRegistry.addName(chestAdm, BlockInfo.ADM_CHEST_UNLOCALIZED_NAME);
 		}
+		
+	public static void registerTileEntities() {
+		GameRegistry.registerTileEntity(TileEntityInvChest.class, BlockInfo.INV_CHEST_KEY);
+	}
 		
 }

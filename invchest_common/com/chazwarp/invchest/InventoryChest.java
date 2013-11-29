@@ -1,6 +1,7 @@
 package com.chazwarp.invchest;
 
 import com.chazwarp.invchest.blocks.Blocks;
+import com.chazwarp.invchest.client.interfaces.GuiHandler;
 import com.chazwarp.invchest.config.ConfigHandler;
 import com.chazwarp.invchest.lib.Reference;
 import com.chazwarp.invchest.network.PacketHandler;
@@ -27,17 +28,27 @@ public class InventoryChest {
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+    	
     	ConfigHandler.init(event.getSuggestedConfigurationFile());
+    	
+    	//Registers Blocks
         Blocks.initChestInv();
     	Blocks.initChestAdm();
+    	//Registers TileEntities
+    	Blocks.registerTileEntities();
+    	//Registers Renderers
     	proxy.registerRenderers();
         
     }
     
     @EventHandler
     public void Init(FMLInitializationEvent event) {
+    	//Registers Names for The Blocks
         Blocks.addChestInvName();
         Blocks.addChestAdmName();
+        
+        //Registers The Gui Handlers
+        new GuiHandler();
         
     }
     
