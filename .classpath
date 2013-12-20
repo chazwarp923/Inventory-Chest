@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="invchest_common"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="/Minecraft"/>
-	<classpathentry kind="lib" path="C:/Users/Chazk_000/Documents/Development/Forge/forge/mcp/jars/libraries/org/lwjgl/lwjgl/lwjgl/2.9.0/lwjgl-2.9.0.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Minecraft"/>
+	<classpathentry kind="lib" path="E:/Program Files/Eclipse/Forge/mcp/jars/libraries/org/lwjgl/lwjgl/lwjgl/2.9.0/lwjgl-2.9.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

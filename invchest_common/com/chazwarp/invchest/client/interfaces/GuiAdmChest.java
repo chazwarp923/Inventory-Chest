@@ -1,28 +1,28 @@
 package com.chazwarp.invchest.client.interfaces;
 
-import org.lwjgl.opengl.GL11;
-
-import com.chazwarp.invchest.tileentity.TileEntityInvChest;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+
+import org.lwjgl.opengl.GL11;
+
+import com.chazwarp.invchest.tileentity.TileEntityAdmChest;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class GuiInvChest extends GuiContainer{
+public class GuiAdmChest extends GuiContainer{
 
-	public GuiInvChest(InventoryPlayer invPlayer, TileEntityInvChest invchest) {
-		super(new ContainerInvChest(invPlayer, invchest));
+	public GuiAdmChest(InventoryPlayer invPlayer, TileEntityAdmChest admchest) {
+		super(new ContainerAdmChest(invPlayer, admchest));
 		
-		xSize = 198;
-		ySize = 249;
+		xSize = 176;
+		ySize = 254;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("invchest", "textures/gui/invchest.png");
+	private static final ResourceLocation texture = new ResourceLocation("invchest", "textures/gui/admchest.png");
 	
 	
 	@Override

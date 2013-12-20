@@ -1,6 +1,7 @@
 package com.chazwarp.invchest.client.interfaces;
 
 import com.chazwarp.invchest.InventoryChest;
+import com.chazwarp.invchest.tileentity.TileEntityAdmChest;
 import com.chazwarp.invchest.tileentity.TileEntityInvChest;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,6 +25,12 @@ public class GuiHandler implements IGuiHandler{
 				return new ContainerInvChest(player.inventory, (TileEntityInvChest)te);
 			}
 			break;
+		case 1:
+			TileEntity te1 = world.getBlockTileEntity(x, y, z);
+			if (te1 != null && te1 instanceof TileEntityAdmChest) {
+				return new ContainerAdmChest(player.inventory, (TileEntityAdmChest)te1);
+			}
+			break;
 		}
 		return null;
 	}
@@ -35,6 +42,12 @@ public class GuiHandler implements IGuiHandler{
 			TileEntity te = world.getBlockTileEntity(x, y, z);
 			if (te != null && te instanceof TileEntityInvChest) {
 				return new GuiInvChest(player.inventory, (TileEntityInvChest)te);
+			}
+			break;
+		case 1:
+			TileEntity te1 = world.getBlockTileEntity(x, y, z);
+			if (te1 != null && te1 instanceof TileEntityAdmChest) {
+				return new GuiAdmChest(player.inventory, (TileEntityAdmChest)te1);
 			}
 			break;
 		}

@@ -32,20 +32,24 @@ public class InventoryChest {
     	ConfigHandler.init(event.getSuggestedConfigurationFile());
     	
     	//Registers Blocks
-        Blocks.initChestInv();
-    	Blocks.initChestAdm();
-    	//Registers TileEntities
+        Blocks.initBlocks();
     	Blocks.registerTileEntities();
     	//Registers Renderers
     	proxy.registerRenderers();
+    	
+    	//Hard Codes The Mod Data
+    	event.getModMetadata().version = Reference.VERSION;
+    	event.getModMetadata().name = Reference.MOD_NAME;
+    	event.getModMetadata().description = "Description :P";
+    	//event.getModMetadata().authorList.add("chazwarp923");
+    	event.getModMetadata().logoFile = "/assets/invchest/textures/chestInv.png";
         
     }
     
     @EventHandler
     public void Init(FMLInitializationEvent event) {
     	//Registers Names for The Blocks
-        Blocks.addChestInvName();
-        Blocks.addChestAdmName();
+        Blocks.addNames();
         
         //Registers The Gui Handlers
         new GuiHandler();

@@ -2,19 +2,17 @@ package com.chazwarp.invchest.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityInvChest extends TileEntity implements IInventory{
+public class TileEntityAdmChest extends TileEntity implements IInventory{
 
 	private ItemStack[] items;
 	
-	public TileEntityInvChest() {
-		items = new ItemStack[41];
+	public TileEntityAdmChest() {
+		items = new ItemStack[40];
 	}
 	
 	@Override
@@ -63,7 +61,7 @@ public class TileEntityInvChest extends TileEntity implements IInventory{
 
 	@Override
 	public String getInvName() {
-		return "InventoryInvChest";
+		return "InventoryAdmChest";
 	}
 
 	@Override

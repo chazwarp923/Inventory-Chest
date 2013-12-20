@@ -16,7 +16,7 @@ public class ConfigHandler {
 		
 		BlockInfo.INV_CHEST_ID = config.getBlock(BlockInfo.INV_CHEST_KEY, BlockInfo.INV_CHEST_DEFAULT).getInt();
 		BlockInfo.ADM_CHEST_ID = config.getBlock(BlockInfo.ADM_CHEST_KEY, BlockInfo.ADM_CHEST_DEFAULT).getInt();
-
+		BlockInfo.PRESENT_ID = config.getBlock(BlockInfo.PRESENT_KEY, BlockInfo.PRESENT_DEFAULT).getInt();
 		
 		config.save();
 		

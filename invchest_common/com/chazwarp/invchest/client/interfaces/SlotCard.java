@@ -5,18 +5,18 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
-public class SlotArmor extends Slot{
+public class SlotCard extends Slot{
 
-	public SlotArmor(IInventory inventory, int id, int x, int y) {
+	public SlotCard(IInventory inventory, int id, int x, int y) {
 		super(inventory, id, x, y);
 	}
 	
 	public boolean isItemValid(ItemStack stack) {
-		switch(slotNumber) {
-		case 0:
-			//if(getArmorType == 0)
+		if(stack.getItem() instanceof ItemArmor) {
 			return true;
-		}
-		return false;
+		}//End IsItemValid If
+		else {
+			return false;
+		}//End Else
 	}
 }

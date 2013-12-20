@@ -1,0 +1,40 @@
+package com.chazwarp.invchest;
+
+import com.chazwarp.invchest.blocks.Blocks;
+
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+
+public class InvTab extends CreativeTabs
+{
+    public static InvTab tab = new InvTab();
+    static boolean hasInit;
+    static int icon;
+
+    public InvTab()
+    {
+        super("invTab");
+        LanguageRegistry.instance().addStringLocalization("itemGroup.invTab", "Inventory Chest");
+    }
+
+    public static void init (int index)
+    {
+        if (!hasInit)
+        {
+            hasInit = true;
+            icon = index;
+        }
+    }
+
+    public int getTabIconItemIndex ()
+    {
+        return icon;
+        
+    	}
+    @Override
+    public ItemStack getIconItemStack() {
+    	return new ItemStack(Blocks.chestInv, 1, 0);
+    }
+}
