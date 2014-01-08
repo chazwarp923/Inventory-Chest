@@ -60,16 +60,27 @@ public class BlockPresent extends BlockContainer{
         return tileEntityChristmasChest;
     }
 	
-	@Override
+	/*@Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		player.inventory.addItemStackToInventory(new ItemStack(Item.plateIron));
+		player.inventory.addItemStackToInventory(RandomGift());
 		return true;
-	}
+	}*/
 	
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister icon)
     {
         this.blockIcon = icon.registerIcon("invchest:present");
     }
+	
+	/*public ItemStack RandomGift() {
+		int gift = ;
+		switch(gift) {
+		case 0:
+			new ItemStack(Item.appleGold);
+			break;
+		case 1:
+			new ItemStack(Item.axeDiamond);
+		}	
+	}*/
 
 }

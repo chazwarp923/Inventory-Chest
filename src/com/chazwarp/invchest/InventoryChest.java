@@ -39,6 +39,7 @@ public class InventoryChest {
     	
     	//Hard Codes The Mod Data
     	event.getModMetadata().version = Reference.VERSION;
+    	event.getModMetadata().modId = Reference.MOD_ID;
     	event.getModMetadata().name = Reference.MOD_NAME;
     	event.getModMetadata().description = "Description :P";
     	//event.getModMetadata().authorList.add("chazwarp923");
