@@ -1,3 +1,6 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest.render;
 
 import net.minecraft.block.Block;

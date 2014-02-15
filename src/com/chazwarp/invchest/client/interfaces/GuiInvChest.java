@@ -1,7 +1,11 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest.client.interfaces;
 
 import org.lwjgl.opengl.GL11;
 
+import com.chazwarp.invchest.network.PacketHandler;
 import com.chazwarp.invchest.tileentity.TileEntityInvChest;
 
 import net.minecraft.client.Minecraft;
@@ -45,9 +49,6 @@ public class GuiInvChest extends GuiContainer{
 	}
 	@Override
 	protected void actionPerformed(GuiButton button) {
-		if(button.id == 0) {
-			System.out.println("Not Yet Implemented :P");
-			
-		}
+		PacketHandler.sendButtonPacket((byte)button.id);
 	}
 }

@@ -1,3 +1,3 @@
-tile.invchest:invChest=Inventory Chest
-tile.invchest:adminChest=Admin Chest
-tile.invchest:present=Present
+tile.invchest:inventoryChest=Inventory Chest
+tile.invchest:adminChest.name=Admin Chest
+tile.invchest:present.name=Present

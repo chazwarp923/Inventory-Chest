@@ -1,11 +1,14 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest.blocks;
-
-import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,8 +24,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockPresent extends BlockContainer{
-
-	private final Random random = new Random();
 	
 	protected BlockPresent(int id) {
 		super(id, Material.wood);
@@ -56,15 +57,22 @@ public class BlockPresent extends BlockContainer{
 	
 	public TileEntity createNewTileEntity(World par1World)
     {
-        TileEntityPresent tileEntityChristmasChest = new TileEntityPresent();
-        return tileEntityChristmasChest;
+        TileEntityPresent tileEntityPresent = new TileEntityPresent();
+        return tileEntityPresent;
     }
 	
-	/*@Override
+	@Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		player.inventory.addItemStackToInventory(RandomGift());
+		int randomInt, minimum = 0, maximum = 9;
+		randomInt = minimum + (int)(Math.random()*maximum); 
+		
+		//player.inventory.addItemStackToInventory(GiftArray[randomInt]);
+		EntityItem droppedItem = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, GiftArray[randomInt]);
+		world.spawnEntityInWorld(droppedItem);
+
+		world.setBlockToAir(x, y, z);
 		return true;
-	}*/
+	}
 	
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister icon)
@@ -72,15 +80,18 @@ public class BlockPresent extends BlockContainer{
         this.blockIcon = icon.registerIcon("invchest:present");
     }
 	
-	/*public ItemStack RandomGift() {
-		int gift = ;
-		switch(gift) {
-		case 0:
-			new ItemStack(Item.appleGold);
-			break;
-		case 1:
-			new ItemStack(Item.axeDiamond);
-		}	
-	}*/
-
+	ItemStack[] GiftArray; {
+	GiftArray = new ItemStack[10];
+	
+	GiftArray[0] = new ItemStack(Item.appleGold.itemID, 1, 0);
+	GiftArray[1] = new ItemStack(Item.expBottle.itemID, 2, 0);
+	GiftArray[2] = new ItemStack(Item.beefCooked.itemID, 5, 0);
+	GiftArray[3] = new ItemStack(Item.blazeRod.itemID, 2, 0);
+	GiftArray[4] = new ItemStack(Item.bucketEmpty.itemID, 3, 0);
+	GiftArray[5] = new ItemStack(Item.cake.itemID, 1, 0);
+	GiftArray[6] = new ItemStack(Item.coal.itemID, 2, 0);
+	GiftArray[7] = new ItemStack(Item.diamond.itemID, 1, 0);
+	GiftArray[8] = new ItemStack(Item.emerald.itemID, 1, 0);
+	GiftArray[9] = new ItemStack(Item.enderPearl.itemID, 1, 0);
+	}
 }

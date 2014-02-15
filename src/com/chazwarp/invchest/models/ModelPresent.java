@@ -1,3 +1,6 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest.models;
 
 import net.minecraft.client.model.ModelBase;

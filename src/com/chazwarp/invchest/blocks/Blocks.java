@@ -1,3 +1,6 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest.blocks;
 
 import net.minecraft.block.Block;

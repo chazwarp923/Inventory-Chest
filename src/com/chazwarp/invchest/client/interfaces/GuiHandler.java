@@ -1,3 +1,6 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest.client.interfaces;
 
 import com.chazwarp.invchest.InventoryChest;

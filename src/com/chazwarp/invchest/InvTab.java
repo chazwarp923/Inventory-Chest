@@ -1,3 +1,6 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest;
 
 import com.chazwarp.invchest.blocks.Blocks;

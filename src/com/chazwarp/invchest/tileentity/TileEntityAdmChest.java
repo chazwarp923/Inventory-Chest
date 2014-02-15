@@ -1,3 +1,6 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;

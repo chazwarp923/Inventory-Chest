@@ -1,3 +1,6 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest.blocks;
 
 import net.minecraft.block.Block;
@@ -25,7 +28,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockAdminChest extends BlockContainer {
 	
 	public BlockAdminChest(int id) {
-		super(id, Material.wood);
+		super(id, Material.rock);
 		
 		setCreativeTab(InvTab.tab);
 		setHardness(1.5F);
@@ -48,9 +51,9 @@ public class BlockAdminChest extends BlockContainer {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister register) {
-		topIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.CHEST_TOP);
+		topIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.ADM_CHEST_TOP);
 		sideIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.ADM_CHEST_SIDE);
-		botIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.CHEST_TOP);
+		botIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.ADM_CHEST_TOP);
 	}
 	
     @SideOnly(Side.CLIENT)

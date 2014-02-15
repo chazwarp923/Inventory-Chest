@@ -1,3 +1,6 @@
+/**
+@author Chaz Kerby
+*/
 package com.chazwarp.invchest.blocks;
 
 import net.minecraft.block.Block;
@@ -48,9 +51,9 @@ public class BlockInventoryChest extends BlockContainer {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister register) {
-		topIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.CHEST_TOP);
-		sideIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.INV_CHEST_SIDE);
-		botIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.CHEST_TOP);
+		topIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.INV_CHEST_TOP);
+		sideIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.INV_CHEST_FRONT);
+		botIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.INV_CHEST_TOP);
 	}
 	
     @SideOnly(Side.CLIENT)
@@ -72,8 +75,6 @@ public class BlockInventoryChest extends BlockContainer {
 		}
 		return true;
 	}
-    
-    
     
 	@Override
 	public TileEntity createNewTileEntity(World world) {
