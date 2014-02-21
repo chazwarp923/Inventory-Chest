@@ -1,18 +1,18 @@
 /**
 @author Chaz Kerby
 */
-package com.chazwarp.invchest.client.interfaces;
+package com.chazwarp.invchest.client.gui;
+
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
 import com.chazwarp.invchest.network.PacketHandler;
 import com.chazwarp.invchest.tileentity.TileEntityInvChest;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
