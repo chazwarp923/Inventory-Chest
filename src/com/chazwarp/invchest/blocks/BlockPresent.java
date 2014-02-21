@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -63,8 +62,9 @@ public class BlockPresent extends BlockContainer{
 	
 	@Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+		
 		int randomInt, minimum = 0, maximum = 9;
-		randomInt = minimum + (int)(Math.random()*maximum); 
+		randomInt = minimum + (int)(Math.random()*maximum);
 		
 		//player.inventory.addItemStackToInventory(GiftArray[randomInt]);
 		EntityItem droppedItem = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, GiftArray[randomInt]);
