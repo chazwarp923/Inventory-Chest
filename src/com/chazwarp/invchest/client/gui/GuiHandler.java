@@ -1,15 +1,16 @@
 /**
 @author Chaz Kerby
 */
-package com.chazwarp.invchest.client.interfaces;
+package com.chazwarp.invchest.client.gui;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 import com.chazwarp.invchest.InventoryChest;
 import com.chazwarp.invchest.tileentity.TileEntityAdmChest;
 import com.chazwarp.invchest.tileentity.TileEntityInvChest;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
