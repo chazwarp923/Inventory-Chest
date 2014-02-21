@@ -3,19 +3,15 @@
 */
 package com.chazwarp.invchest.tileentity;
 
-import java.util.Arrays;
-import java.util.List;
-
-import com.chazwarp.invchest.client.interfaces.ContainerInvChest;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+
+import com.chazwarp.invchest.client.gui.ContainerInvChest;
 
 public class TileEntityInvChest extends TileEntity implements IInventory{
 
