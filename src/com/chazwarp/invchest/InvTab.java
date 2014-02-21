@@ -3,11 +3,11 @@
 */
 package com.chazwarp.invchest;
 
-import com.chazwarp.invchest.blocks.Blocks;
-
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+
+import com.chazwarp.invchest.blocks.Blocks;
+
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class InvTab extends CreativeTabs
