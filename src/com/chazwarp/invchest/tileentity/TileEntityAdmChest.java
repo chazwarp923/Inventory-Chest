@@ -3,6 +3,8 @@
 */
 package com.chazwarp.invchest.tileentity;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -13,6 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityAdmChest extends TileEntity implements IInventory{
 
 	private ItemStack[] items;
+	private String playerName = "";
 	
 	public TileEntityAdmChest() {
 		items = new ItemStack[40];
@@ -96,6 +99,8 @@ public class TileEntityAdmChest extends TileEntity implements IInventory{
 	public void writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
 		
+		compound.setString("PlayerName", this.playerName);
+		
 		NBTTagList items = new NBTTagList();
 		
 		for (int i = 0; i < getSizeInventory(); i++) {		
@@ -115,6 +120,8 @@ public class TileEntityAdmChest extends TileEntity implements IInventory{
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		
+		this.playerName = compound.getString("PlayerName");
+		
 		NBTTagList items = compound.getTagList("Items");
 		
 		for (int i = 0; i < items.tagCount(); i++) {
@@ -126,4 +133,12 @@ public class TileEntityAdmChest extends TileEntity implements IInventory{
 			}
 		}
 	}
+	
+	@SideOnly(Side.CLIENT)
+	
+	public String getplayerName()
+    {
+        return this.playerName;
+    }
+	
 }
