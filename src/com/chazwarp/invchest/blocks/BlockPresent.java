@@ -29,13 +29,9 @@ public class BlockPresent extends BlockContainer{
 		
 		this.setCreativeTab(InvTab.tab);
 		this.setHardness(1.5F);
+		setUnlocalizedName(BlockInfo.PRESENT_UNLOCALIZED_NAME);
 		this.setStepSound(Block.soundWoodFootstep);
         this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
-	}
-	
-	@Override
-	public String getUnlocalizedName() {
-		return String.format("tile.%s%s", Reference.MOD_ID.toLowerCase() + ":", BlockInfo.PRESENT_UNLOCALIZED_NAME);	
 	}
 
 	public boolean isOpaqueCube()

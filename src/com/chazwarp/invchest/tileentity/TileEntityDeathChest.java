@@ -4,20 +4,17 @@
 package com.chazwarp.invchest.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import com.chazwarp.invchest.client.gui.ContainerInvChest;
-
-public class TileEntityInvChest extends TileEntity implements IInventory{
+public class TileEntityDeathChest extends TileEntity implements IInventory{
 
 	private ItemStack[] items;
 	
-	public TileEntityInvChest() {
+	public TileEntityDeathChest() {
 		items = new ItemStack[40];
 	}
 	
@@ -67,7 +64,7 @@ public class TileEntityInvChest extends TileEntity implements IInventory{
 
 	@Override
 	public String getInvName() {
-		return "InventoryInvChest";
+		return "InventoryDeathChest";
 	}
 
 	@Override
@@ -128,47 +125,6 @@ public class TileEntityInvChest extends TileEntity implements IInventory{
 				setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(item));
 			}
 		}
-	}
-
-	public void recieveButtonEvent(byte buttonId, EntityPlayer entityPlayer) {
-		
-		//Gets The Players Inventory
-		ItemStack[] playerInv = new ItemStack[40];
-		for(int i = 0; i < 39; i++) {
-			playerInv[i] = entityPlayer.inventory.getStackInSlot(i);
-		}
-		
-		//Gets The Chests Inventory
-		Container container = entityPlayer.openContainer;
-		TileEntityInvChest invChest = ((ContainerInvChest)container).getChest();
-		ItemStack[] chestInv = new ItemStack[40];
-		for(int i = 0; i < 39; i++) {
-			chestInv[i] = invChest.getStackInSlot(i);
-		}
-		
-		//Makes A Buffer Array
-		ItemStack[] buffer = new ItemStack[40];
-		
-		
-		switch(buttonId) {
-		case 0:
-			buffer = playerInv;
-			playerInv = chestInv;
-			chestInv = buffer;
-			
-			//Sets The Players Inventory
-			for(int i = 0; i < 39; i++) {
-				entityPlayer.inventory.setInventorySlotContents(i, playerInv[i]);
-			}
-			
-			//Sets The Chests Inventory
-			for(int i = 0; i < 39; i++) {
-				invChest.setInventorySlotContents(i, chestInv[i]);
-			}
-			
-		break;
-		}
-		
 	}
 
 }

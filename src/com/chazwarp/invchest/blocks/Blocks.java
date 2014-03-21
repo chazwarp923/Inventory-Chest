@@ -6,11 +6,13 @@ package com.chazwarp.invchest.blocks;
 import net.minecraft.block.Block;
 
 import com.chazwarp.invchest.items.ItemAdminChest;
+import com.chazwarp.invchest.items.ItemDeathChest;
 import com.chazwarp.invchest.items.ItemInventoryChest;
 import com.chazwarp.invchest.items.ItemPresent;
 import com.chazwarp.invchest.lib.BlockInfo;
-import com.chazwarp.invchest.tileentity.TileEntityAdmChest;
-import com.chazwarp.invchest.tileentity.TileEntityInvChest;
+import com.chazwarp.invchest.tileentity.TileEntityAdminChest;
+import com.chazwarp.invchest.tileentity.TileEntityDeathChest;
+import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
 import com.chazwarp.invchest.tileentity.TileEntityPresent;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -18,26 +20,26 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Blocks {
 
-	public static Block chestInv;
+	public static Block inventoryChest;
 	
-		public static void initChestInv() {
-			chestInv = new BlockInventoryChest(BlockInfo.INV_CHEST_ID);
-			GameRegistry.registerBlock(chestInv, ItemInventoryChest.class, BlockInfo.INV_CHEST_KEY);
+		public static void initInventoryChest() {
+			inventoryChest = new BlockInventoryChest(BlockInfo.INVENTORY_CHEST_ID);
+			GameRegistry.registerBlock(inventoryChest, ItemInventoryChest.class, BlockInfo.INVENTORY_CHEST_KEY);
 		}
 		
-		public static void addChestInvName() {
-			LanguageRegistry.addName(chestInv, BlockInfo.INV_CHEST_UNLOCALIZED_NAME);
+		public static void addInventoryChestName() {
+			LanguageRegistry.addName(inventoryChest, BlockInfo.INVENTORY_CHEST_UNLOCALIZED_NAME);
 		}
 		
-	public static Block chestAdm;
+	public static Block adminChest;
 		
-		public static void initChestAdm() {
-			chestAdm = new BlockAdminChest(BlockInfo.ADM_CHEST_ID);
-			GameRegistry.registerBlock(chestAdm, ItemAdminChest.class, BlockInfo.ADM_CHEST_KEY);
+		public static void initAdminChest() {
+			adminChest = new BlockAdminChest(BlockInfo.ADMIN_CHEST_ID);
+			GameRegistry.registerBlock(adminChest, ItemAdminChest.class, BlockInfo.ADMIN_CHEST_KEY);
 		}
 		
-		public static void addChestAdmName() {
-			LanguageRegistry.addName(chestAdm, BlockInfo.ADM_CHEST_UNLOCALIZED_NAME);
+		public static void addAdminChestName() {
+			LanguageRegistry.addName(adminChest, BlockInfo.ADMIN_CHEST_UNLOCALIZED_NAME);
 		}
 		
 	public static Block present;
@@ -51,23 +53,36 @@ public class Blocks {
 			LanguageRegistry.addName(present, BlockInfo.PRESENT_UNLOCALIZED_NAME);
 		}
 		
+	public static Block deathChest;
+		
+		public static void initDeathChest() {
+			deathChest = new BlockDeathChest(BlockInfo.DEATH_CHEST_ID);
+			GameRegistry.registerBlock(deathChest, ItemDeathChest.class, BlockInfo.DEATH_CHEST_KEY);
+		}
+		
+		public static void addDeathChestName() {
+			LanguageRegistry.addName(deathChest, BlockInfo.DEATH_CHEST_UNLOCALIZED_NAME);
+		}
+		
 		
 	public static void initBlocks() {
-		initChestInv();
-		initChestAdm();
+		initInventoryChest();
+		initAdminChest();
 		initPresent();
+		initDeathChest();
 	}
 	
 	public static void addNames() {
-		addChestInvName();
-		addChestAdmName();
+		addInventoryChestName();
+		addAdminChestName();
 		addPresentName();
 	}
 		
 	public static void registerTileEntities() {
-		GameRegistry.registerTileEntity(TileEntityInvChest.class, BlockInfo.INV_CHEST_KEY);
-		GameRegistry.registerTileEntity(TileEntityAdmChest.class, BlockInfo.ADM_CHEST_KEY);
+		GameRegistry.registerTileEntity(TileEntityInventoryChest.class, BlockInfo.INVENTORY_CHEST_KEY);
+		GameRegistry.registerTileEntity(TileEntityAdminChest.class, BlockInfo.ADMIN_CHEST_KEY);
 		GameRegistry.registerTileEntity(TileEntityPresent.class, BlockInfo.PRESENT_KEY);
+		GameRegistry.registerTileEntity(TileEntityDeathChest.class, BlockInfo.DEATH_CHEST_KEY);
 	}
 		
 }

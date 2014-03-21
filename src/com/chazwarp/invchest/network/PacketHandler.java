@@ -12,9 +12,11 @@ import net.minecraft.inventory.Container;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet250CustomPayload;
 
-import com.chazwarp.invchest.client.gui.ContainerInvChest;
+import com.chazwarp.invchest.client.gui.ContainerAdminChest;
+import com.chazwarp.invchest.client.gui.ContainerInventoryChest;
 import com.chazwarp.invchest.lib.Reference;
-import com.chazwarp.invchest.tileentity.TileEntityInvChest;
+import com.chazwarp.invchest.tileentity.TileEntityAdminChest;
+import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 
@@ -36,9 +38,18 @@ public class PacketHandler implements IPacketHandler{
 			case 0:
 				byte buttonId = reader.readByte();
 				Container container = entityPlayer.openContainer;
-				if(container != null && container instanceof ContainerInvChest) {
-					TileEntityInvChest invChest = ((ContainerInvChest)container).getChest();
-					invChest.recieveButtonEvent(buttonId, entityPlayer);
+				if(container != null && container instanceof ContainerInventoryChest) {
+					TileEntityInventoryChest inventoryChest = ((ContainerInventoryChest)container).getChest();
+					inventoryChest.recieveButtonEvent(buttonId, entityPlayer);
+				break;
+				}
+			case 1:
+				String playername = reader.readUTF();
+				Container container1 = entityPlayer.openContainer;
+				if(container1 != null && container1 instanceof ContainerAdminChest) {
+					TileEntityAdminChest adminChest = ((ContainerAdminChest)container1).getChest();
+					adminChest.setPlayerName(playername);
+				break;
 				}
 		}
     }
@@ -54,8 +65,22 @@ public class PacketHandler implements IPacketHandler{
 			
 			PacketDispatcher.sendPacketToServer(PacketDispatcher.getPacket(Reference.CHANNEL, byteStream.toByteArray()));
 		}catch(IOException ex) {
-			System.err.append("Failed to Send Button Packet!");
+			System.err.append("Failed to Send Button Click Packet!");
 		}
 	}
-	
+
+	public static void sendPlayerNamePacket(String text) {
+		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+		DataOutputStream dataStream = new DataOutputStream(byteStream);
+		
+		try {
+			dataStream.writeByte((byte)1);
+
+			dataStream.writeUTF(text);
+			
+			PacketDispatcher.sendPacketToServer(PacketDispatcher.getPacket(Reference.CHANNEL, byteStream.toByteArray()));
+		}catch(IOException ex) {
+			System.err.append("Failed to Send Player Name Packet!");
+		}
+	}	
 }

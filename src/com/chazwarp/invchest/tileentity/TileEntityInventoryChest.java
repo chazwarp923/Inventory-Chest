@@ -3,21 +3,21 @@
 */
 package com.chazwarp.invchest.tileentity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityAdmChest extends TileEntity implements IInventory{
+import com.chazwarp.invchest.client.gui.ContainerInventoryChest;
+
+public class TileEntityInventoryChest extends TileEntity implements IInventory{
 
 	private ItemStack[] items;
-	private String playerName = "";
 	
-	public TileEntityAdmChest() {
+	public TileEntityInventoryChest() {
 		items = new ItemStack[40];
 	}
 	
@@ -67,7 +67,7 @@ public class TileEntityAdmChest extends TileEntity implements IInventory{
 
 	@Override
 	public String getInvName() {
-		return "InventoryAdmChest";
+		return "InventoryInvChest";
 	}
 
 	@Override
@@ -99,8 +99,6 @@ public class TileEntityAdmChest extends TileEntity implements IInventory{
 	public void writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
 		
-		compound.setString("PlayerName", this.playerName);
-		
 		NBTTagList items = new NBTTagList();
 		
 		for (int i = 0; i < getSizeInventory(); i++) {		
@@ -120,8 +118,6 @@ public class TileEntityAdmChest extends TileEntity implements IInventory{
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		
-		this.playerName = compound.getString("PlayerName");
-		
 		NBTTagList items = compound.getTagList("Items");
 		
 		for (int i = 0; i < items.tagCount(); i++) {
@@ -133,12 +129,41 @@ public class TileEntityAdmChest extends TileEntity implements IInventory{
 			}
 		}
 	}
-	
-	@SideOnly(Side.CLIENT)
-	
-	public String getplayerName()
-    {
-        return this.playerName;
-    }
-	
+
+	public void recieveButtonEvent(byte buttonId, EntityPlayer entityPlayer) {
+		
+		//Gets The Players Inventory
+		ItemStack[] playerInv = new ItemStack[40];
+		for(int i = 0; i < 39; i++) {
+			playerInv[i] = entityPlayer.inventory.getStackInSlot(i);
+		}
+		
+		//Gets The Chests Inventory
+		Container container = entityPlayer.openContainer;
+		TileEntityInventoryChest invChest = ((ContainerInventoryChest)container).getChest();
+		ItemStack[] chestInv = new ItemStack[40];
+		for(int i = 0; i < 39; i++) {
+			chestInv[i] = invChest.getStackInSlot(i);
+		}
+		
+		//Makes A Buffer Array
+		ItemStack[] buffer = new ItemStack[40];
+		
+		
+		switch(buttonId) {
+		case 0:
+			buffer = playerInv;
+			playerInv = chestInv;
+			chestInv = buffer;
+			
+			//Sets The Inventory's
+			for(int i = 0; i < 39; i++) {
+				entityPlayer.inventory.setInventorySlotContents(i, playerInv[i]);
+				invChest.setInventorySlotContents(i, chestInv[i]);
+			}
+		break;
+		}
+		
+	}
+
 }

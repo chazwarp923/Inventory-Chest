@@ -1,3 +1,5 @@
-tile.invchest:inventoryChest=Inventory Chest
-tile.invchest:adminChest.name=Admin Chest
-tile.invchest:present.name=Present
+itemGroup.invTab=Inventory Chest
+tile.inventoryChest=Inventory Chest
+tile.adminChest=Admin Chest
+tile.present=Present
+tile.deathChest=Death Chest

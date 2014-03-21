@@ -9,13 +9,13 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import com.chazwarp.invchest.tileentity.TileEntityInvChest;
+import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
 
-public class ContainerInvChest extends Container{
+public class ContainerInventoryChest extends Container{
 
-	private TileEntityInvChest invChest;
+	private TileEntityInventoryChest invChest;
 	
-	public ContainerInvChest(InventoryPlayer invPlayer, TileEntityInvChest invChest) {
+	public ContainerInventoryChest(InventoryPlayer invPlayer, TileEntityInventoryChest invChest) {
 		this.invChest = invChest;
 		
 		//Adds The Players Hotbar
@@ -68,7 +68,7 @@ public class ContainerInvChest extends Container{
 		return null;
 	}
 	
-	public TileEntityInvChest getChest() {
+	public TileEntityInventoryChest getChest() {
 		return invChest;
 	}
 

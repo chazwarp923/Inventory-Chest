@@ -19,24 +19,23 @@ import com.chazwarp.invchest.InventoryChest;
 import com.chazwarp.invchest.lib.BlockInfo;
 import com.chazwarp.invchest.lib.Reference;
 import com.chazwarp.invchest.lib.Textures;
-import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
+import com.chazwarp.invchest.tileentity.TileEntityDeathChest;
 
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockInventoryChest extends BlockContainer {
-	
-	public BlockInventoryChest(int id) {
-		super(id, Material.wood);
+public class BlockDeathChest extends BlockContainer{
+
+	public BlockDeathChest(int id) {
+		super(id, Material.rock);
 		
 		setCreativeTab(InvTab.tab);
 		setHardness(1.5F);
-		setUnlocalizedName(BlockInfo.INVENTORY_CHEST_UNLOCALIZED_NAME);
-		setStepSound(Block.soundWoodFootstep);
-		
+		setUnlocalizedName(BlockInfo.DEATH_CHEST_UNLOCALIZED_NAME);
+		setStepSound(Block.soundStoneFootstep);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	private Icon topIcon;
 	@SideOnly(Side.CLIENT)
@@ -47,44 +46,46 @@ public class BlockInventoryChest extends BlockContainer {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister register) {
-		topIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.INVENTORY_CHEST_TOP);
-		sideIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.INVENTORY_CHEST_FRONT);
-		botIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.INVENTORY_CHEST_TOP);
-	}
-	
+		topIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.DEATH_CHEST_TOP);
+		sideIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.DEATH_CHEST_FRONT);
+		botIcon = register.registerIcon(Reference.TEXTURE_LOC + ":" + Textures.DEATH_CHEST_TOP);
+    }
+    
     @SideOnly(Side.CLIENT)
     @Override
     public Icon getIcon(int side, int meta) {
     	if (side == 0) {
     		return botIcon;
-    	}else if (side == 1) {
+    	}
+    	else if (side == 1) {
     		return topIcon;
-    	}else{
+    	}
+    	else{
     		return sideIcon;
     	}
     }
-
+    
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		if(!world.isRemote) {
-			FMLNetworkHandler.openGui(player, InventoryChest.instance, 0, world, x, y, z);
+			FMLNetworkHandler.openGui(player, InventoryChest.instance, 2, world, x, y, z);
 		}
 		return true;
-	}
-    
+	} 
+		
 	@Override
 	public TileEntity createNewTileEntity(World world) {
-		return new TileEntityInventoryChest();
+		return new TileEntityDeathChest();
 	}
 	
 	@Override
 	public void breakBlock(World world, int x, int y, int z, int id, int meta) {
 		TileEntity te = world.getBlockTileEntity(x, y, z);
-		if(te != null && te instanceof TileEntityInventoryChest) {
-			TileEntityInventoryChest invChest = (TileEntityInventoryChest)te;
+		if(te != null && te instanceof TileEntityDeathChest) {
+			TileEntityDeathChest deathChest = (TileEntityDeathChest)te;
 			
-			for(int i = 0; i < invChest.getSizeInventory(); i++) {
-				ItemStack stack = invChest.getStackInSlotOnClosing(i);
+			for(int i = 0; i < deathChest.getSizeInventory(); i++) {
+				ItemStack stack = deathChest.getStackInSlotOnClosing(i);
 				
 				if(stack != null) {
 					float spawnX = x + world.rand.nextFloat();

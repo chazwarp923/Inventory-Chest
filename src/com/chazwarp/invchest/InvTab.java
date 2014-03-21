@@ -19,7 +19,6 @@ public class InvTab extends CreativeTabs
     public InvTab()
     {
         super("invTab");
-        LanguageRegistry.instance().addStringLocalization("itemGroup.invTab", "Inventory Chest");
     }
 
     public static void init (int index)
@@ -38,6 +37,6 @@ public class InvTab extends CreativeTabs
     	}
     @Override
     public ItemStack getIconItemStack() {
-    	return new ItemStack(Blocks.chestInv, 1, 0);
+    	return new ItemStack(Blocks.inventoryChest, 1, 0);
     }
 }
