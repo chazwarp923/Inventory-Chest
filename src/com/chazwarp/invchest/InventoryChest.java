@@ -35,28 +35,27 @@ public class InventoryChest {
     	ConfigHandler.init(event.getSuggestedConfigurationFile());
     	
     	//Registers Blocks
-        Blocks.initBlocks();
-    	Blocks.registerTileEntities();
+	        Blocks.initBlocks();
+	    	Blocks.registerTileEntities();
     	//Registers Renderers
-    	proxy.registerRenderers();
+    		proxy.registerRenderers();
     	
     	//Hard Codes The Mod Data
-    	event.getModMetadata().version = Reference.VERSION;
-    	event.getModMetadata().modId = Reference.MOD_ID;
-    	event.getModMetadata().name = Reference.MOD_NAME;
-    	event.getModMetadata().description = "Description :P";
-    	//event.getModMetadata().authorList.add("chazwarp923");
-    	event.getModMetadata().logoFile = "/assets/invchest/textures/chestInv.png";
-        
+	    	event.getModMetadata().credits = "enderblaze2 & Reika";
+	    	event.getModMetadata().description = "A Mod That Adds Different Types of Chests";
+	    	event.getModMetadata().logoFile = "assets/" + Reference.MOD_ID +"/textures/logo.png";
+	    	event.getModMetadata().modId = Reference.MOD_ID;
+	    	event.getModMetadata().name = Reference.MOD_NAME;
+	    	event.getModMetadata().version = Reference.VERSION;
     }
     
     @EventHandler
     public void Init(FMLInitializationEvent event) {
     	//Registers Names for The Blocks
-        Blocks.addNames();
+    		Blocks.addNames();
         
         //Registers The Gui Handlers
-        new GuiHandler();
+    		new GuiHandler();
         
     }
     

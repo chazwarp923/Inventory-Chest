@@ -8,8 +8,6 @@ import net.minecraft.item.ItemStack;
 
 import com.chazwarp.invchest.blocks.Blocks;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
-
 public class InvTab extends CreativeTabs
 {
     public static InvTab tab = new InvTab();

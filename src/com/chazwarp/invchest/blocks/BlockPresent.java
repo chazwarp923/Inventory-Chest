@@ -16,7 +16,6 @@ import net.minecraft.world.World;
 
 import com.chazwarp.invchest.InvTab;
 import com.chazwarp.invchest.lib.BlockInfo;
-import com.chazwarp.invchest.lib.Reference;
 import com.chazwarp.invchest.tileentity.TileEntityPresent;
 
 import cpw.mods.fml.relauncher.Side;

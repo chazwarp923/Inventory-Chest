@@ -36,7 +36,7 @@ public class PresentRenderer extends TileEntitySpecialRenderer {
         public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
                 GL11.glPushMatrix();
                 GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-                ResourceLocation textures = (new ResourceLocation("invchest:textures/models/ModelPresent.png"));
+                ResourceLocation textures = (new ResourceLocation("invchest:textures/models/Present.png"));
                 Minecraft.getMinecraft().renderEngine.bindTexture(textures);
                      
                 GL11.glPushMatrix();
