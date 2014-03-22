@@ -31,16 +31,17 @@ public class ContainerAdminChest extends Container{
 			}
 		}
 		
-		//Adds The Observed Players Armor Slots
-		
 		String username = adminChest.getPlayerName();
 		
 		if(adminChest.worldObj.getPlayerEntityByName(username) != null) {
 			
 			InventoryPlayer invObservedPlayer = adminChest.worldObj.getPlayerEntityByName(username).inventory;
-			
+
+			//Adds The Observed Players Armor Slots
+			int e = 39;//Slot Number To Start With
 			for(int x = 0; x < 4; x++) {
-				addSlotToContainer(new Slot(invObservedPlayer, x, 8, 8 + 18 * x)); 
+				addSlotToContainer(new Slot(invObservedPlayer, e, 8, 8 + 18 * x));
+				e++;
 			}
 		
 			//Adds The Observed Players Inventory
@@ -55,7 +56,7 @@ public class ContainerAdminChest extends Container{
 				addSlotToContainer(new Slot(invObservedPlayer, w, 8 + 18 * x, 140));
 				w++;
 			}
-		}//End isPlayerReal If
+		}//End If
 	}
 
 	@Override
