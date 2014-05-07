@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 
 import com.chazwarp.invchest.InventoryChest;
 import com.chazwarp.invchest.tileentity.TileEntityAdminChest;
+import com.chazwarp.invchest.tileentity.TileEntityHoppingBuffer;
 import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
 
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -35,6 +36,12 @@ public class GuiHandler implements IGuiHandler{
 				return new ContainerAdminChest(player.inventory, (TileEntityAdminChest)te1);
 			}
 			break;
+		case 2:
+			TileEntity te2 = world.getBlockTileEntity(x, y, z);
+			if (te2 != null && te2 instanceof TileEntityHoppingBuffer) {
+				return new ContainerHoppingBuffer(player.inventory, (TileEntityHoppingBuffer)te2);
+			}
+			break;
 		}
 		return null;
 	}
@@ -52,6 +59,12 @@ public class GuiHandler implements IGuiHandler{
 			TileEntity te1 = world.getBlockTileEntity(x, y, z);
 			if (te1 != null && te1 instanceof TileEntityAdminChest) {
 				return new GuiAdminChest(player.inventory, (TileEntityAdminChest)te1);
+			}
+			break;
+		case 2:
+			TileEntity te2 = world.getBlockTileEntity(x, y, z);
+			if (te2 != null && te2 instanceof TileEntityHoppingBuffer) {
+				return new GuiHoppingBuffer(player.inventory, (TileEntityHoppingBuffer)te2);
 			}
 			break;
 		}

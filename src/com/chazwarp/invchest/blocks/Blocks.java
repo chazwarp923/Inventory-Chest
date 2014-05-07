@@ -7,11 +7,13 @@ import net.minecraft.block.Block;
 
 import com.chazwarp.invchest.items.ItemAdminChest;
 import com.chazwarp.invchest.items.ItemDeathChest;
+import com.chazwarp.invchest.items.ItemHoppingBuffer;
 import com.chazwarp.invchest.items.ItemInventoryChest;
 import com.chazwarp.invchest.items.ItemPresent;
 import com.chazwarp.invchest.lib.BlockInfo;
 import com.chazwarp.invchest.tileentity.TileEntityAdminChest;
 import com.chazwarp.invchest.tileentity.TileEntityDeathChest;
+import com.chazwarp.invchest.tileentity.TileEntityHoppingBuffer;
 import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
 import com.chazwarp.invchest.tileentity.TileEntityPresent;
 
@@ -64,18 +66,32 @@ public class Blocks {
 			LanguageRegistry.addName(deathChest, BlockInfo.DEATH_CHEST_UNLOCALIZED_NAME);
 		}
 		
+	public static Block hoppingBuffer;
+		
+		public static void initHoppingBuffer() {
+			hoppingBuffer = new BlockHoppingBuffer(BlockInfo.HOPPING_BUFFER_ID);
+			GameRegistry.registerBlock(hoppingBuffer, ItemHoppingBuffer.class, BlockInfo.HOPPING_BUFFER_KEY);
+		}
+		
+		public static void addHoppingBufferName() {
+			LanguageRegistry.addName(hoppingBuffer, BlockInfo.HOPPING_BUFFER_UNLOCALIZED_NAME);
+		}
+		
 		
 	public static void initBlocks() {
 		initInventoryChest();
 		initAdminChest();
 		initPresent();
 		initDeathChest();
+		initHoppingBuffer();
 	}
 	
 	public static void addNames() {
 		addInventoryChestName();
 		addAdminChestName();
 		addPresentName();
+		addDeathChestName();
+		addHoppingBufferName();
 	}
 		
 	public static void registerTileEntities() {
@@ -83,6 +99,7 @@ public class Blocks {
 		GameRegistry.registerTileEntity(TileEntityAdminChest.class, BlockInfo.ADMIN_CHEST_KEY);
 		GameRegistry.registerTileEntity(TileEntityPresent.class, BlockInfo.PRESENT_KEY);
 		GameRegistry.registerTileEntity(TileEntityDeathChest.class, BlockInfo.DEATH_CHEST_KEY);
+		GameRegistry.registerTileEntity(TileEntityHoppingBuffer.class, BlockInfo.HOPPING_BUFFER_KEY);
 	}
 		
 }

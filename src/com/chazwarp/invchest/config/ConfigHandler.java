@@ -20,7 +20,8 @@ public class ConfigHandler {
 		BlockInfo.INVENTORY_CHEST_ID = config.getBlock(BlockInfo.INVENTORY_CHEST_KEY, BlockInfo.INVENTORY_CHEST_DEFAULT).getInt();
 		BlockInfo.ADMIN_CHEST_ID = config.getBlock(BlockInfo.ADMIN_CHEST_KEY, BlockInfo.ADMIN_CHEST_DEFAULT).getInt();
 		BlockInfo.PRESENT_ID = config.getBlock(BlockInfo.PRESENT_KEY, BlockInfo.PRESENT_DEFAULT).getInt();
-		BlockInfo.DEATH_CHEST_ID = config.getBlock(BlockInfo.DEATH_CHEST_KEY, BlockInfo.ADMIN_CHEST_DEFAULT).getInt();
+		BlockInfo.DEATH_CHEST_ID = config.getBlock(BlockInfo.DEATH_CHEST_KEY, BlockInfo.DEATH_CHEST_DEFAULT).getInt();
+		BlockInfo.HOPPING_BUFFER_ID = config.getBlock(BlockInfo.HOPPING_BUFFER_KEY, BlockInfo.HOPPING_BUFFER_DEFAULT).getInt();
 		
 		config.save();
 		

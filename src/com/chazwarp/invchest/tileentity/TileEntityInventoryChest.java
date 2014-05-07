@@ -42,8 +42,7 @@ public class TileEntityInventoryChest extends TileEntity implements IInventory{
 				itemstack = itemstack.splitStack(count);
 				onInventoryChanged();
 			}
-		}
-		
+		}		
 		return itemstack;
 	}
 
@@ -148,7 +147,6 @@ public class TileEntityInventoryChest extends TileEntity implements IInventory{
 		
 		//Makes A Buffer Array
 		ItemStack[] buffer = new ItemStack[40];
-		
 		
 		switch(buttonId) {
 		case 0:

@@ -28,4 +28,10 @@ public class BlockInfo {
 	public static final String DEATH_CHEST_KEY = "Death Chest";
 	public static int DEATH_CHEST_DEFAULT = 2454;
 	public static final String DEATH_CHEST_UNLOCALIZED_NAME = "deathChest";
+	
+	//This is all the information for the Hopping Buffer
+	public static int HOPPING_BUFFER_ID;
+	public static final String HOPPING_BUFFER_KEY = "Hopping Buffer";
+	public static int HOPPING_BUFFER_DEFAULT = 2455;
+	public static final String HOPPING_BUFFER_UNLOCALIZED_NAME = "hoppingBuffer";
 }

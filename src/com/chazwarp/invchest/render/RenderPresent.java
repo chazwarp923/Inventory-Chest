@@ -17,11 +17,11 @@ import org.lwjgl.opengl.GL11;
 
 import com.chazwarp.invchest.models.ModelPresent;
 
-public class PresentRenderer extends TileEntitySpecialRenderer {
+public class RenderPresent extends TileEntitySpecialRenderer {
        
         private final ModelPresent model;
        
-        public PresentRenderer() {
+        public RenderPresent() {
                 this.model = new ModelPresent();
         }
        

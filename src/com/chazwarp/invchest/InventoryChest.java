@@ -6,6 +6,7 @@ package com.chazwarp.invchest;
 import com.chazwarp.invchest.blocks.Blocks;
 import com.chazwarp.invchest.client.gui.GuiHandler;
 import com.chazwarp.invchest.config.ConfigHandler;
+import com.chazwarp.invchest.crafting.Shapeless;
 import com.chazwarp.invchest.lib.Reference;
 import com.chazwarp.invchest.network.PacketHandler;
 
@@ -40,6 +41,9 @@ public class InventoryChest {
     	//Registers Renderers
     		proxy.registerRenderers();
     	
+    	//Adds Recipe
+    		Shapeless.addCrafting();
+    		
     	//Hard Codes The Mod Data
 	    	event.getModMetadata().credits = "enderblaze2 & Reika";
 	    	event.getModMetadata().description = "A Mod That Adds Different Types of Chests";

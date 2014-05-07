@@ -24,6 +24,7 @@ public class TileEntityAdminChest extends TileEntity implements IInventory{
         return this.playerName;
     }
 	
+	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
 		return entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64;
 	}

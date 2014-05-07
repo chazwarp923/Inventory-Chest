@@ -33,6 +33,7 @@ public class BlockPresent extends BlockContainer{
         this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 	}
 
+	@Override
 	public boolean isOpaqueCube()
     {
         return false;
@@ -61,7 +62,6 @@ public class BlockPresent extends BlockContainer{
 		int randomInt, minimum = 0, maximum = 9;
 		randomInt = minimum + (int)(Math.random()*maximum);
 		
-		//player.inventory.addItemStackToInventory(GiftArray[randomInt]);
 		EntityItem droppedItem = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, GiftArray[randomInt]);
 		world.spawnEntityInWorld(droppedItem);
 
@@ -70,6 +70,7 @@ public class BlockPresent extends BlockContainer{
 	}
 	
 	@SideOnly(Side.CLIENT)
+	@Override
     public void registerIcons(IconRegister icon)
     {
         this.blockIcon = icon.registerIcon("invchest:present");

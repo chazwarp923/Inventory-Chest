@@ -34,25 +34,32 @@ public class ContainerAdminChest extends Container{
 		if(adminChest.worldObj.getPlayerEntityByName(username) != null) {
 			
 			InventoryPlayer invObservedPlayer = adminChest.worldObj.getPlayerEntityByName(username).inventory;
-
+/*
 			//Adds The Observed Players Armor Slots
 			int e = 39;//Slot Number To Start With
 			for(int x = 0; x < 4; x++) {
 				addSlotToContainer(new Slot(invObservedPlayer, e, 8, 8 + 18 * x));
-				e++;
+				e--;
 			}
-		
+		*/
 			//Adds The Observed Players Inventory
-			for(int y = 0; y < 3; y++) {
-				for(int x = 0; x < 9; x++) {
-					addSlotToContainer(new Slot(invObservedPlayer, x + y * 9 + 4, 8 + 18 * x, 84 + y * 18));
-				}
+			for(int x=0; x < 9; x++) {
+				addSlotToContainer(new Slot(invObservedPlayer, x, 8 + 18 * x, 84));
 			}
+			
+			for(int x=9; x < 18; x++) {
+				addSlotToContainer(new Slot(invObservedPlayer, x, 8 + 18 * (x - 9), 102));
+			}
+			
+			for(int x=18; x < 35; x++) {
+				addSlotToContainer(new Slot(invObservedPlayer, x, 8 + 18 * (x - 18), 120));
+			}
+			
 			//Adds The Observed Players Hotbar
-			int w = 31;//Slot Number To Start With
+			//int w = 31;//Slot Number To Start With
 			for(int x = 0; x < 9; x++) {
-				addSlotToContainer(new Slot(invObservedPlayer, w, 8 + 18 * x, 140));
-				w++;
+				addSlotToContainer(new Slot(invObservedPlayer, x, 8 + 18 * x, 140));
+				//w++;
 			}
 		}//End If
 	}
