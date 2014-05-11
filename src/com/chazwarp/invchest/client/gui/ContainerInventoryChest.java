@@ -31,11 +31,10 @@ public class ContainerInventoryChest extends Container{
 		}
 		
 		//Adds The Players Armor Slots
-		int z = 39;//Slot Number To Start With
-		for(int x = 0; x < 4; x++) {
-				addSlotToContainer(new Slot(invPlayer, z, 176, 172 + 18 * x));
-				z--;
-		}
+		addSlotToContainer(new SlotHelmet(invPlayer, 39, 176, 172));
+		addSlotToContainer(new SlotChestplate(invPlayer, 38, 176, 190));
+		addSlotToContainer(new SlotLegs(invPlayer, 37, 176, 208));
+		addSlotToContainer(new SlotBoots(invPlayer, 36, 176, 226));
 		
 		//Adds The Chests Hotbar
 		for(int x = 0; x < 9; x++) {
@@ -52,7 +51,7 @@ public class ContainerInventoryChest extends Container{
 		//Adds The Chests Armor Slots
 		int d = 39;//Slot Number To Start With
 		for(int x = 0; x < 4; x++) {
-			addSlotToContainer(new Slot(invChest, d, 8, 8 + 18 * x));
+			addSlotToContainer(new SlotArmor(invChest, d, 8, 8 + 18 * x));
 			d--;
 		}
 		

@@ -33,15 +33,15 @@ public class ContainerAdminChest extends Container{
 		
 		if(adminChest.worldObj.getPlayerEntityByName(username) != null) {
 			
-			InventoryPlayer invObservedPlayer = adminChest.worldObj.getPlayerEntityByName(username).inventory;
-/*
+			EntityPlayer player = adminChest.worldObj.getPlayerEntityByName(username);
+			InventoryPlayer invObservedPlayer = player.inventory;
+
 			//Adds The Observed Players Armor Slots
-			int e = 39;//Slot Number To Start With
-			for(int x = 0; x < 4; x++) {
-				addSlotToContainer(new Slot(invObservedPlayer, e, 8, 8 + 18 * x));
-				e--;
-			}
-		*/
+			addSlotToContainer(new SlotHelmet(invObservedPlayer, 39, 8, 8));
+			addSlotToContainer(new SlotChestplate(invObservedPlayer, 38, 8, 26));
+			addSlotToContainer(new SlotLegs(invObservedPlayer, 37, 8, 44));
+			addSlotToContainer(new SlotBoots(invObservedPlayer, 36, 8, 62));
+
 			//Adds The Observed Players Inventory
 			for(int x=0; x < 9; x++) {
 				addSlotToContainer(new Slot(invObservedPlayer, x, 8 + 18 * x, 84));
