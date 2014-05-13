@@ -10,7 +10,6 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 import com.chazwarp.invchest.tileentity.TileEntityHoppingBuffer;
-import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
 
 public class ContainerHoppingBuffer extends Container{
 

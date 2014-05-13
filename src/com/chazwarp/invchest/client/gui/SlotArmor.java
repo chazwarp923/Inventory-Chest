@@ -3,11 +3,8 @@
 */
 package com.chazwarp.invchest.client.gui;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
 public class SlotArmor extends Slot{
