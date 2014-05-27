@@ -100,6 +100,5 @@ public class Blocks {
 		GameRegistry.registerTileEntity(TileEntityPresent.class, BlockInfo.PRESENT_KEY);
 		GameRegistry.registerTileEntity(TileEntityDeathChest.class, BlockInfo.DEATH_CHEST_KEY);
 		GameRegistry.registerTileEntity(TileEntityHoppingBuffer.class, BlockInfo.HOPPING_BUFFER_KEY);
-	}
-		
+	}	
 }
