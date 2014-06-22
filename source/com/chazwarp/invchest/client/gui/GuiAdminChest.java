@@ -34,13 +34,11 @@ public class GuiAdminChest extends GuiContainer{
 		ySize = 254;
 	}
 	
-	public void updateScreen()
-    {
+	public void updateScreen() {
         this.playerNameField.updateCursorCounter();
     }
 
-	private static final ResourceLocation texture = new ResourceLocation("invchest", "textures/gui/adminChest.png");
-	
+	private static final ResourceLocation texture = new ResourceLocation("invchest", "textures/gui/adminChest.png");	
 	
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float f, int x, int y) {
@@ -103,6 +101,5 @@ public class GuiAdminChest extends GuiContainer{
 	protected void mouseClicked(int par1, int par2, int par3) {
         super.mouseClicked(par1, par2, par3);
         this.playerNameField.mouseClicked(par1, par2, par3);
-    }
-	
+    }	
 }

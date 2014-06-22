@@ -13,6 +13,7 @@ public class SlotBoots extends Slot{
 		super(IInv, slotIndex, xDisplay, yDisplay);
 	}
 	
+	@Override
 	public boolean isItemValid(ItemStack itemstack) {
 		
 		if(itemstack != null && itemstack.getDisplayName().contains("Boots")) {
@@ -23,5 +24,4 @@ public class SlotBoots extends Slot{
 		return false;	
 		}
 	}
-
 }

@@ -34,14 +34,12 @@ public class BlockPresent extends BlockContainer{
 	}
 
 	@Override
-	public boolean isOpaqueCube()
-    {
+	public boolean isOpaqueCube() {
         return false;
     }
 	
 	@Override
-	public boolean renderAsNormalBlock()
-    {
+	public boolean renderAsNormalBlock() {
         return false;
     }
 	
@@ -50,8 +48,7 @@ public class BlockPresent extends BlockContainer{
 		return -1;	
 	}
 	
-	public TileEntity createNewTileEntity(World par1World)
-    {
+	public TileEntity createNewTileEntity(World par1World) {
         TileEntityPresent tileEntityPresent = new TileEntityPresent();
         return tileEntityPresent;
     }
@@ -71,8 +68,7 @@ public class BlockPresent extends BlockContainer{
 	
 	@SideOnly(Side.CLIENT)
 	@Override
-    public void registerIcons(IconRegister icon)
-    {
+    public void registerIcons(IconRegister icon) {
         this.blockIcon = icon.registerIcon("invchest:present");
     }
 	

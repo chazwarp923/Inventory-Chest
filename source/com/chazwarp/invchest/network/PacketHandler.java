@@ -42,7 +42,7 @@ public class PacketHandler implements IPacketHandler{
 					TileEntityInventoryChest inventoryChest = ((ContainerInventoryChest)container).getChest();
 					inventoryChest.recieveButtonEvent(buttonId, entityPlayer);
 				break;
-				}
+			}
 			case 1:
 				String playername = reader.readUTF();
 				Container container1 = entityPlayer.openContainer;
@@ -50,7 +50,7 @@ public class PacketHandler implements IPacketHandler{
 					TileEntityAdminChest adminChest = ((ContainerAdminChest)container1).getChest();
 					adminChest.setPlayerName(playername);
 				break;
-				}
+			}
 		}
     }
 
@@ -64,7 +64,8 @@ public class PacketHandler implements IPacketHandler{
 			dataStream.writeByte(id);
 			
 			PacketDispatcher.sendPacketToServer(PacketDispatcher.getPacket(Reference.CHANNEL, byteStream.toByteArray()));
-		}catch(IOException ex) {
+		}
+		catch(IOException ex) {
 			System.err.append("Failed to Send Button Click Packet!");
 		}
 	}
@@ -79,7 +80,8 @@ public class PacketHandler implements IPacketHandler{
 			dataStream.writeUTF(text);
 			
 			PacketDispatcher.sendPacketToServer(PacketDispatcher.getPacket(Reference.CHANNEL, byteStream.toByteArray()));
-		}catch(IOException ex) {
+		}
+		catch(IOException ex) {
 			System.err.append("Failed to Send Player Name Packet!");
 		}
 	}	

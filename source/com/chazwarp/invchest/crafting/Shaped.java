@@ -12,10 +12,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Shaped {
 
-public static void addCrafting() {
-		
-		ItemStack hopBuf = new ItemStack(Blocks.hoppingBuffer);
-		
-		GameRegistry.addShapedRecipe(hopBuf, new Object[] {"H", "C", 'H', Block.hopperBlock, 'C', Block.chest});
+	public static void addCrafting() {
+	
 	}
 }

@@ -10,7 +10,6 @@ import net.minecraftforge.common.Configuration;
 import com.chazwarp.invchest.lib.BlockInfo;
 
 public class ConfigHandler {
-
 	
 	public static void init(File file) {
 		Configuration config = new Configuration(file);
@@ -23,7 +22,6 @@ public class ConfigHandler {
 		BlockInfo.DEATH_CHEST_ID = config.getBlock(BlockInfo.DEATH_CHEST_KEY, BlockInfo.DEATH_CHEST_DEFAULT).getInt();
 		BlockInfo.HOPPING_BUFFER_ID = config.getBlock(BlockInfo.HOPPING_BUFFER_KEY, BlockInfo.HOPPING_BUFFER_DEFAULT).getInt();
 		
-		config.save();
-		
+		config.save();		
 	}
 }

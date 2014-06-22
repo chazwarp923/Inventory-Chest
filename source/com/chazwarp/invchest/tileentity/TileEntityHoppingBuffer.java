@@ -106,7 +106,7 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-			return true;
+		return true;
 	}
 	
 	@Override
@@ -144,8 +144,7 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
 		}
 	}
 	
-    public void updateEntity()
-    {
+    public void updateEntity() {
         if (this.worldObj != null && !this.worldObj.isRemote)
         {
             --this.transferCooldown;
@@ -158,8 +157,7 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
         }
     }
 
-    public boolean updateHopper()
-    {
+    public boolean updateHopper() {
         if (this.worldObj != null && !this.worldObj.isRemote)
         {
             if (!this.isCoolingDown() && BlockHopper.getIsBlockNotPoweredFromMetadata(this.getBlockMetadata()))
@@ -174,11 +172,9 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
                     return true;
                 }
             }
-
             return false;
         }
-        else
-        {
+        else {
             return false;
         }
     }
@@ -186,16 +182,13 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
     /**
      * Inserts one item from the hopper into the inventory the hopper is pointing at.
      */
-    private boolean insertItemToInventory()
-    {
+    private boolean insertItemToInventory() {
         IInventory iinventory = this.getOutputInventory();
 
-        if (iinventory == null)
-        {
+        if (iinventory == null) {
             return false;
         }
-        else
-        {
+        else {
             for (int i = 0; i < this.getSizeInventory(); ++i)
             {
                 if (this.getStackInSlot(i) != null)
@@ -212,7 +205,6 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
                     this.setInventorySlotContents(i, itemstack);
                 }
             }
-
             return false;
         }
     }
@@ -220,8 +212,7 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
     /**
      * Sucks one item into the given hopper from an inventory or EntityItem above it.
      */
-    public static boolean suckItemsIntoHopper(Hopper par0Hopper)
-    {
+    public static boolean suckItemsIntoHopper(Hopper par0Hopper) {
         IInventory iinventory = getInventoryAboveHopper(par0Hopper);
 
         if (iinventory != null)
@@ -267,8 +258,7 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
         return false;
     }
 
-    private static boolean insertStackFromInventory(Hopper par0Hopper, IInventory par1IInventory, int par2, int par3)
-    {
+    private static boolean insertStackFromInventory(Hopper par0Hopper, IInventory par1IInventory, int par2, int par3) {
         ItemStack itemstack = par1IInventory.getStackInSlot(par2);
 
         if (itemstack != null && canExtractItemFromInventory(par1IInventory, itemstack, par2, par3))
@@ -284,7 +274,6 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
 
             par1IInventory.setInventorySlotContents(par2, itemstack1);
         }
-
         return false;
     }
 
@@ -310,7 +299,6 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
                 flag = true;
                 par1EntityItem.setDead();
             }
-
             return flag;
         }
     }
@@ -344,25 +332,21 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
         {
             par1ItemStack = null;
         }
-
         return par1ItemStack;
     }
 
     /**
      * Args: inventory, item, slot, side
      */
-    private static boolean canInsertItemToInventory(IInventory par0IInventory, ItemStack par1ItemStack, int par2, int par3)
-    {
+    private static boolean canInsertItemToInventory(IInventory par0IInventory, ItemStack par1ItemStack, int par2, int par3) {
         return !par0IInventory.isItemValidForSlot(par2, par1ItemStack) ? false : !(par0IInventory instanceof ISidedInventory) || ((ISidedInventory)par0IInventory).canInsertItem(par2, par1ItemStack, par3);
     }
 
-    private static boolean canExtractItemFromInventory(IInventory par0IInventory, ItemStack par1ItemStack, int par2, int par3)
-    {
+    private static boolean canExtractItemFromInventory(IInventory par0IInventory, ItemStack par1ItemStack, int par2, int par3) {
         return !(par0IInventory instanceof ISidedInventory) || ((ISidedInventory)par0IInventory).canExtractItem(par2, par1ItemStack, par3);
     }
 
-    private static ItemStack func_102014_c(IInventory par0IInventory, ItemStack par1ItemStack, int par2, int par3)
-    {
+    private static ItemStack func_102014_c(IInventory par0IInventory, ItemStack par1ItemStack, int par2, int par3) {
         ItemStack itemstack1 = par0IInventory.getStackInSlot(par2);
 
         if (canInsertItemToInventory(par0IInventory, par1ItemStack, par2, par3))
@@ -406,15 +390,13 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
                 par0IInventory.onInventoryChanged();
             }
         }
-
         return par1ItemStack;
     }
 
     /**
      * Gets the inventory the hopper is pointing at.
      */
-    private IInventory getOutputInventory()
-    {
+    private IInventory getOutputInventory() {
         int i = BlockHopper.getDirectionFromMetadata(this.getBlockMetadata());
         return getInventoryAtLocation(this.getWorldObj(), (double)(this.xCoord + Facing.offsetsXForSide[i]), (double)(this.yCoord + Facing.offsetsYForSide[i]), (double)(this.zCoord + Facing.offsetsZForSide[i]));
     }
@@ -422,13 +404,11 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
     /**
      * Looks for anything, that can hold items (like chests, furnaces, etc.) one block above the given hopper.
      */
-    public static IInventory getInventoryAboveHopper(Hopper par0Hopper)
-    {
+    public static IInventory getInventoryAboveHopper(Hopper par0Hopper) {
         return getInventoryAtLocation(par0Hopper.getWorldObj(), par0Hopper.getXPos(), par0Hopper.getYPos() + 1.0D, par0Hopper.getZPos());
     }
 
-    public static EntityItem getEntityAbove(World par0World, double par1, double par3, double par5)
-    {
+    public static EntityItem getEntityAbove(World par0World, double par1, double par3, double par5) {
         List list = par0World.selectEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getAABBPool().getAABB(par1, par3, par5, par1 + 1.0D, par3 + 1.0D, par5 + 1.0D), IEntitySelector.selectAnything);
         return list.size() > 0 ? (EntityItem)list.get(0) : null;
     }
@@ -437,8 +417,7 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
      * Gets an inventory at the given location to extract items into or take items from. Can find either a tile entity
      * or regular entity implementing IInventory.
      */
-    public static IInventory getInventoryAtLocation(World par0World, double par1, double par3, double par5)
-    {
+    public static IInventory getInventoryAtLocation(World par0World, double par1, double par3, double par5) {
         IInventory iinventory = null;
         int i = MathHelper.floor_double(par1);
         int j = MathHelper.floor_double(par3);
@@ -474,42 +453,36 @@ public class TileEntityHoppingBuffer extends TileEntity implements IInventory, H
         return iinventory;
     }
 
-    private static boolean areItemStacksEqualItem(ItemStack par0ItemStack, ItemStack par1ItemStack)
-    {
+    private static boolean areItemStacksEqualItem(ItemStack par0ItemStack, ItemStack par1ItemStack) {
         return par0ItemStack.itemID != par1ItemStack.itemID ? false : (par0ItemStack.getItemDamage() != par1ItemStack.getItemDamage() ? false : (par0ItemStack.stackSize > par0ItemStack.getMaxStackSize() ? false : ItemStack.areItemStackTagsEqual(par0ItemStack, par1ItemStack)));
     }
 
     /**
      * Gets the world X position for this hopper entity.
      */
-    public double getXPos()
-    {
+    public double getXPos() {
         return (double)this.xCoord;
     }
 
     /**
      * Gets the world Y position for this hopper entity.
      */
-    public double getYPos()
-    {
+    public double getYPos() {
         return (double)this.yCoord;
     }
 
     /**
      * Gets the world Z position for this hopper entity.
      */
-    public double getZPos()
-    {
+    public double getZPos() {
         return (double)this.zCoord;
     }
 
-    public void setTransferCooldown(int par1)
-    {
+    public void setTransferCooldown(int par1) {
         this.transferCooldown = par1;
     }
 
-    public boolean isCoolingDown()
-    {
+    public boolean isCoolingDown() {
         return this.transferCooldown > 0;
     }
 }

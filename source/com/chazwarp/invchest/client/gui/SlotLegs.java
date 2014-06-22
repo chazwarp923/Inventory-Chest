@@ -13,6 +13,7 @@ public class SlotLegs extends Slot{
 		super(IInv, slotIndex, xDisplay, yDisplay);
 	}
 	
+	@Override
 	public boolean isItemValid(ItemStack itemstack) {
 		
 		if(itemstack != null && itemstack.getDisplayName().contains("Leg") || itemstack.getDisplayName().contains("Pants")) {
@@ -23,5 +24,4 @@ public class SlotLegs extends Slot{
 		return false;	
 		}
 	}
-
 }

@@ -49,12 +49,12 @@ public class ContainerInventoryChest extends Container{
 		}
 		
 		//Adds The Chests Armor Slots
-		int d = 39;//Slot Number To Start With
-		for(int x = 0; x < 4; x++) {
-			addSlotToContainer(new SlotArmor(invChest, d, 8, 8 + 18 * x));
-			d--;
-		}
-		
+		for(int x = 0; x < 4; x++) {			
+			addSlotToContainer(new SlotHelmet(invChest, 39, 8, 8));
+			addSlotToContainer(new SlotChestplate(invChest, 38, 8, 26));
+			addSlotToContainer(new SlotLegs(invChest, 37, 8, 44));
+			addSlotToContainer(new SlotBoots(invChest, 36, 8, 62));
+		}		
 	}
 	
 	@Override
@@ -70,5 +70,4 @@ public class ContainerInventoryChest extends Container{
 	public TileEntityInventoryChest getChest() {
 		return invChest;
 	}
-
 }

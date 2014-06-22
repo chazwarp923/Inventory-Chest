@@ -13,14 +13,12 @@ public class TileEntityAdminChest extends TileEntity implements IInventory{
 
 	private String playerName = "";
 	
-	public void setPlayerName(String string)
-    {
+	public void setPlayerName(String string) {
         this.playerName = string;
         this.onInventoryChanged();
     }
 	
-	public String getPlayerName()
-    {
+	public String getPlayerName() {
         return this.playerName;
     }
 	
@@ -64,9 +62,7 @@ public class TileEntityAdminChest extends TileEntity implements IInventory{
 	}
 
 	@Override
-	public void setInventorySlotContents(int i, ItemStack itemstack) {
-		
-	}
+	public void setInventorySlotContents(int i, ItemStack itemstack) {}
 
 	@Override
 	public String getInvName() {

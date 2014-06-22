@@ -15,6 +15,5 @@ public class Textures {
 	
 	public static final String DEATH_CHEST_TOP = "deathChestTop";
 	public static final String DEATH_CHEST_FRONT = "deathChestFront";	
-	public static final String DEATH_CHEST_SIDE = "deathChestSide";
-	
+	public static final String DEATH_CHEST_SIDE = "deathChestSide";	
 }

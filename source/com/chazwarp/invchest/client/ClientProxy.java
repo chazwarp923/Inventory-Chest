@@ -15,9 +15,7 @@ public class ClientProxy extends CommonProxy {
        
         @Override
         public void registerRenderers() {
-                // This is for rendering entities and so forth later on
         	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPresent.class, new RenderPresent());
         	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHoppingBuffer.class, new RenderHoppingBuffer());
-        }
-       
+        }       
 }

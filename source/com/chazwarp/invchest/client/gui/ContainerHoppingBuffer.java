@@ -53,5 +53,4 @@ public class ContainerHoppingBuffer extends Container{
 	public TileEntityHoppingBuffer getChest() {
 		return hopBuf;
 	}
-
 }

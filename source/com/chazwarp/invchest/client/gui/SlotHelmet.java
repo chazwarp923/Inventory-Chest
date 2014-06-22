@@ -13,6 +13,7 @@ public class SlotHelmet extends Slot{
 		super(IInv, slotIndex, xDisplay, yDisplay);
 	}
 	
+	@Override
 	public boolean isItemValid(ItemStack itemstack) {
 		
 		if(itemstack != null && itemstack.getDisplayName().contains("Helm") || itemstack.getDisplayName().contains("Hat") || itemstack.getDisplayName().contains("Gogg")) {
@@ -23,5 +24,4 @@ public class SlotHelmet extends Slot{
 		return false;	
 		}
 	}
-
 }

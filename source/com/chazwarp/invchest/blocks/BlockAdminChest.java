@@ -76,5 +76,4 @@ public class BlockAdminChest extends BlockContainer {
 	public TileEntity createNewTileEntity(World world) {
         return new TileEntityAdminChest();
 	}
-
 }

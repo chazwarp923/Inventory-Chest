@@ -76,6 +76,5 @@ public class ContainerAdminChest extends Container{
 
 	public TileEntityAdminChest getChest() {
 		return adminChest;
-	}
-	
+	}	
 }

@@ -16,5 +16,4 @@ public class ItemAdminChest extends ItemBlock {
 	public int getMetadata(int dmg) {
 		return dmg;
 	}
-
 }

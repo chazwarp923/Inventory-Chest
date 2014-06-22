@@ -52,6 +52,5 @@ public class GuiInventoryChest extends GuiContainer{
 	@Override
 	protected void actionPerformed(GuiButton button) {
 		PacketHandler.sendButtonPacket((byte)button.id);
-	}
-	
+	}	
 }

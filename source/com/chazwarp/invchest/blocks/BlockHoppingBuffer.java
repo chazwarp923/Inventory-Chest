@@ -107,14 +107,12 @@ public class BlockHoppingBuffer extends BlockContainer {
 	}
 	
 	@Override
-	public boolean isOpaqueCube()
-    {
+	public boolean isOpaqueCube() {
         return false;
     }
 	
 	@Override
-	public boolean renderAsNormalBlock()
-    {
+	public boolean renderAsNormalBlock() {
         return false;
     }
 	

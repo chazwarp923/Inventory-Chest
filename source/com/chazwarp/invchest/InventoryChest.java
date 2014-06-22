@@ -38,7 +38,7 @@ public class InventoryChest {
     	
     	//Registers Blocks
 	        Blocks.initBlocks();
-	    	Blocks.registerTileEntities();
+	        
     	//Registers Renderers
     		proxy.registerRenderers();
     	
@@ -59,10 +59,12 @@ public class InventoryChest {
     public void Init(FMLInitializationEvent event) {
     	//Registers Names for The Blocks
     		Blocks.addNames();
+    		
+    	//Registers The TileEntities
+	    	Blocks.registerTileEntities();
         
         //Registers The Gui Handlers
-    		new GuiHandler();
-        
+    		new GuiHandler();      
     }
     
     @EventHandler

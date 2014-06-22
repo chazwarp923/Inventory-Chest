@@ -13,6 +13,7 @@ public class SlotChestplate extends Slot{
 		super(IInv, slotIndex, xDisplay, yDisplay);
 	}
 	
+	@Override
 	public boolean isItemValid(ItemStack itemstack) {
 		
 		if(itemstack != null && itemstack.getDisplayName().contains("Chestplate") || itemstack.getDisplayName().contains("Armor")) {
@@ -23,5 +24,4 @@ public class SlotChestplate extends Slot{
 		return false;	
 		}
 	}
-
 }

@@ -39,8 +39,7 @@ public class TileEntityDeathChest extends TileEntity implements IInventory{
 				itemstack = itemstack.splitStack(count);
 				onInventoryChanged();
 			}
-		}
-		
+		}		
 		return itemstack;
 	}
 
@@ -57,8 +56,7 @@ public class TileEntityDeathChest extends TileEntity implements IInventory{
 		
 		if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()) {
 			itemstack.stackSize = getInventoryStackLimit();
-		}
-		
+		}		
 		onInventoryChanged();
 	}
 
@@ -91,7 +89,8 @@ public class TileEntityDeathChest extends TileEntity implements IInventory{
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 			return true;
-		}
+	}
+	
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
@@ -126,5 +125,4 @@ public class TileEntityDeathChest extends TileEntity implements IInventory{
 			}
 		}
 	}
-
 }

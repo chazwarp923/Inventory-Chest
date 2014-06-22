@@ -59,8 +59,7 @@ public class TileEntityInventoryChest extends TileEntity implements IInventory{
 		
 		if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()) {
 			itemstack.stackSize = getInventoryStackLimit();
-		}
-		
+		}	
 		onInventoryChanged();
 	}
 
@@ -92,8 +91,9 @@ public class TileEntityInventoryChest extends TileEntity implements IInventory{
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-			return true;
-		}
+		return true;
+	}
+	
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
@@ -160,8 +160,6 @@ public class TileEntityInventoryChest extends TileEntity implements IInventory{
 				invChest.setInventorySlotContents(i, chestInv[i]);
 			}
 		break;
-		}
-		
+		}		
 	}
-
 }
