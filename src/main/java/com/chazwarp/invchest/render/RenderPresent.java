@@ -15,17 +15,18 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import com.chazwarp.invchest.models.ModelHoppingBuffer;
+import com.chazwarp.invchest.models.ModelPresent;
 
-public class RenderHoppingBuffer extends TileEntitySpecialRenderer {
+public class RenderPresent extends TileEntitySpecialRenderer {
        
-        private final ModelHoppingBuffer model;
+        private final ModelPresent model;
        
-        public RenderHoppingBuffer() {
-                this.model = new ModelHoppingBuffer();
+        public RenderPresent() {
+                this.model = new ModelPresent();
         }
        
-        private void adjustRotatePivotViaMeta(World world, int x, int y, int z) {
+        @SuppressWarnings("unused")
+		private void adjustRotatePivotViaMeta(World world, int x, int y, int z) {
                 int meta = world.getBlockMetadata(x, y, z);
                 GL11.glPushMatrix();
                 GL11.glRotatef(meta * (-90), 0.0F, 0.0F, 1.0F);
@@ -36,7 +37,7 @@ public class RenderHoppingBuffer extends TileEntitySpecialRenderer {
         public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
                 GL11.glPushMatrix();
                 GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-                ResourceLocation textures = (new ResourceLocation("invchest:textures/models/Hopping_Buffer.png"));
+                ResourceLocation textures = (new ResourceLocation("invchest:textures/models/Present.png"));
                 Minecraft.getMinecraft().renderEngine.bindTexture(textures);
                      
                 GL11.glPushMatrix();
@@ -46,9 +47,10 @@ public class RenderHoppingBuffer extends TileEntitySpecialRenderer {
                 GL11.glPopMatrix();
         }
       
-        private void adjustLightFixture(World world, int i, int j, int k, Block block) {
+        @SuppressWarnings("unused")
+		private void adjustLightFixture(World world, int i, int j, int k, Block block) {
                 Tessellator tess = Tessellator.instance;
-                float brightness = block.getBlockBrightness(world, i, j, k);
+                float brightness = block.getLightValue(world, i, j, k);
                 int skyLight = world.getLightBrightnessForSkyBlocks(i, j, k, 0);
                 int modulousModifier = skyLight % 65536;
                 int divModifier = skyLight / 65536;

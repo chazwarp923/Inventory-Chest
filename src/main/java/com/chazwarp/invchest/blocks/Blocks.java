@@ -18,7 +18,6 @@ import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
 import com.chazwarp.invchest.tileentity.TileEntityPresent;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Blocks {
 
@@ -29,10 +28,6 @@ public class Blocks {
 			GameRegistry.registerBlock(inventoryChest, ItemInventoryChest.class, BlockInfo.INVENTORY_CHEST_KEY);
 		}
 		
-		public static void addInventoryChestName() {
-			LanguageRegistry.addName(inventoryChest, BlockInfo.INVENTORY_CHEST_UNLOCALIZED_NAME);
-		}
-		
 	public static Block adminChest;
 		
 		public static void initAdminChest() {
@@ -40,19 +35,11 @@ public class Blocks {
 			GameRegistry.registerBlock(adminChest, ItemAdminChest.class, BlockInfo.ADMIN_CHEST_KEY);
 		}
 		
-		public static void addAdminChestName() {
-			LanguageRegistry.addName(adminChest, BlockInfo.ADMIN_CHEST_UNLOCALIZED_NAME);
-		}
-		
 	public static Block present;
 	
 		public static void initPresent() {
-			present = new BlockPresent(BlockInfo.PRESENT_ID);
+			present = new BlockPresent();
 			GameRegistry.registerBlock(present, ItemPresent.class, BlockInfo.PRESENT_KEY);
-		}
-		
-		public static void addPresentName() {
-			LanguageRegistry.addName(present, BlockInfo.PRESENT_UNLOCALIZED_NAME);
 		}
 		
 	public static Block deathChest;
@@ -62,21 +49,12 @@ public class Blocks {
 			GameRegistry.registerBlock(deathChest, ItemDeathChest.class, BlockInfo.DEATH_CHEST_KEY);
 		}
 		
-		public static void addDeathChestName() {
-			LanguageRegistry.addName(deathChest, BlockInfo.DEATH_CHEST_UNLOCALIZED_NAME);
-		}
-		
 	public static Block hoppingBuffer;
 		
 		public static void initHoppingBuffer() {
 			hoppingBuffer = new BlockHoppingBuffer(BlockInfo.HOPPING_BUFFER_ID);
 			GameRegistry.registerBlock(hoppingBuffer, ItemHoppingBuffer.class, BlockInfo.HOPPING_BUFFER_KEY);
-		}
-		
-		public static void addHoppingBufferName() {
-			LanguageRegistry.addName(hoppingBuffer, BlockInfo.HOPPING_BUFFER_UNLOCALIZED_NAME);
-		}
-		
+		}		
 		
 	public static void initBlocks() {
 		initInventoryChest();
@@ -84,14 +62,6 @@ public class Blocks {
 		initPresent();
 		initDeathChest();
 		initHoppingBuffer();
-	}
-	
-	public static void addNames() {
-		addInventoryChestName();
-		addAdminChestName();
-		addPresentName();
-		addDeathChestName();
-		addHoppingBufferName();
 	}
 		
 	public static void registerTileEntities() {

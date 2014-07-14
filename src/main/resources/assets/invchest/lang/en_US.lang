@@ -1,0 +1,6 @@
+itemGroup.invTab=Inventory Chest
+tile.inventoryChest.name=Inventory Chest
+tile.adminChest.name=Admin Chest
+tile.present.name=Present
+tile.deathChest.name=Death Chest
+tile.hoppingBuffer.name=Hopping Buffer

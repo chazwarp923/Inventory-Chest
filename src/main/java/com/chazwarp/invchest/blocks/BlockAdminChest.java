@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.network.ForgeNetworkHandler;
 
 import com.chazwarp.invchest.InvTab;
 import com.chazwarp.invchest.InventoryChest;
@@ -23,16 +24,10 @@ import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockAdminChest extends BlockContainer {
+public class BlockAdminChest extends BlockIC {
 	
-	public BlockAdminChest(int id) {
-		super(id, Material.rock);
-		
-		setCreativeTab(InvTab.tab);
-		setHardness(1.5F);
-		setUnlocalizedName(BlockInfo.ADMIN_CHEST_UNLOCALIZED_NAME);
-		setStepSound(Block.soundStoneFootstep);
-		
+	public BlockAdminChest() {
+		super(Material.wood, 1.5F, Block.soundTypeWood, BlockInfo.ADMIN_CHEST_UNLOCALIZED_NAME, "axe", 1);	
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -67,7 +62,7 @@ public class BlockAdminChest extends BlockContainer {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		if(!world.isRemote) {
-			FMLNetworkHandler.openGui(player, InventoryChest.instance, 1, world, x, y, z);
+			ForgeNetworkHandler.openGui(player, InventoryChest.instance, 1, world, x, y, z);
 		}
 		return true;
 	} 
