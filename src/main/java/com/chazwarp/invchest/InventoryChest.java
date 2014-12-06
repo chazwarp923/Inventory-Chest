@@ -3,11 +3,14 @@
 */
 package com.chazwarp.invchest;
 
-import com.chazwarp.invchest.blocks.Blocks;
+import net.minecraftforge.common.MinecraftForge;
+
+import com.chazwarp.invchest.blocks.ModBlocks;
 import com.chazwarp.invchest.client.gui.GuiHandler;
 import com.chazwarp.invchest.config.ConfigHandler;
 import com.chazwarp.invchest.crafting.Shaped;
 import com.chazwarp.invchest.crafting.Shapeless;
+import com.chazwarp.invchest.eventhandler.DeathEventHandler;
 import com.chazwarp.invchest.lib.Reference;
 
 import cpw.mods.fml.common.Mod;
@@ -33,7 +36,7 @@ public class InventoryChest {
     	ConfigHandler.init(event.getSuggestedConfigurationFile());
     	
     	//Registers Blocks
-	        Blocks.initBlocks();
+	        ModBlocks.initBlocks();
 	        
     	//Registers Renderers
     		proxy.registerRenderers();
@@ -53,8 +56,11 @@ public class InventoryChest {
     
     @Mod.EventHandler
     public void Init(FMLInitializationEvent event) {
+    	//Registers The EventHandlers
+    	MinecraftForge.EVENT_BUS.register(new DeathEventHandler());
+    	
         //Registers The TileEntities
-	    Blocks.registerTileEntities();
+	    ModBlocks.registerTileEntities();
         
         //Registers The Gui Handlers
     		new GuiHandler();      

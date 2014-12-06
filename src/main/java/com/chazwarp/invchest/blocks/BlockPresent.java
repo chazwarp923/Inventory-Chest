@@ -15,10 +15,13 @@ import net.minecraft.world.World;
 import com.chazwarp.invchest.lib.BlockInfo;
 import com.chazwarp.invchest.tileentity.TileEntityPresent;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 public class BlockPresent extends BlockIC {
 	
 	protected BlockPresent() {
-		super(Material.wood, 1.5F, Block.soundTypeWood, BlockInfo.PRESENT_UNLOCALIZED_NAME, "axe", 1);
+		super(Material.wood, 1.5F, Block.soundTypeWood, BlockInfo.PRESENT_UNLOCALIZED_NAME, BlockIC.AXE, BlockIC.STONE);
 		
         setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 	}
@@ -42,6 +45,7 @@ public class BlockPresent extends BlockIC {
         return new TileEntityPresent();
     }
 	
+	@SideOnly(Side.SERVER)
 	@Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		

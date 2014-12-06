@@ -19,7 +19,7 @@ import com.chazwarp.invchest.tileentity.TileEntityPresent;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class Blocks {
+public class ModBlocks {
 
 	public static Block inventoryChest;
 	

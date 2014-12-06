@@ -3,15 +3,14 @@
 */
 package com.chazwarp.invchest.blocks;
 
+import javax.swing.Icon;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 import com.chazwarp.invchest.InvTab;
@@ -21,19 +20,14 @@ import com.chazwarp.invchest.lib.Reference;
 import com.chazwarp.invchest.lib.Textures;
 import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
 
-import cpw.mods.fml.common.network.FMLNetworkHandler;
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockInventoryChest extends BlockContainer {
+public class BlockInventoryChest extends BlockIC {
 	
 	public BlockInventoryChest(int id) {
-		super(id, Material.wood);
-		
-		setCreativeTab(InvTab.tab);
-		setHardness(1.5F);
-		setUnlocalizedName(BlockInfo.INVENTORY_CHEST_UNLOCALIZED_NAME);
-		setStepSound(Block.soundWoodFootstep);
+		super(Material.wood, 1.5F, Block.soundTypeWood, BlockInfo.INVENTORY_CHEST_UNLOCALIZED_NAME, BlockIC.AXE, BlockIC.STONE);
 		
 	}
 	

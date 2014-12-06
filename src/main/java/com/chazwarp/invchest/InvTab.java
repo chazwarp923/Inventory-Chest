@@ -8,7 +8,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.chazwarp.invchest.blocks.Blocks;
+import com.chazwarp.invchest.blocks.ModBlocks;
 
 public class InvTab extends CreativeTabs {
 	
@@ -20,7 +20,7 @@ public class InvTab extends CreativeTabs {
 
     @Override
     public ItemStack getIconItemStack() {
-    	return new ItemStack(Blocks.inventoryChest);
+    	return new ItemStack(ModBlocks.inventoryChest);
     }
 
 	@Override
