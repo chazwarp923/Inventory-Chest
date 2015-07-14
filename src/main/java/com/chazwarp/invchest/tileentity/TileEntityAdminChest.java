@@ -1,6 +1,6 @@
 /**
 @author Chaz Kerby
-*/
+ */
 package com.chazwarp.invchest.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,35 +9,36 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityAdminChest extends TileEntity implements IInventory{
+public class TileEntityAdminChest extends TileEntity implements IInventory {
 
 	private String playerName = "";
-	
+
 	public void setPlayerName(String string) {
-        this.playerName = string;
-        this.onInventoryChanged();
-    }
-	
+		this.playerName = string;
+		this.onInventoryChanged();
+	}
+
 	public String getPlayerName() {
-        return this.playerName;
-    }
-	
+		return this.playerName;
+	}
+
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-		return entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64;
+		return entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5,
+				zCoord + 0.5) <= 64;
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
-		
+
 		compound.setString("PlayerName", this.playerName);
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
-		
+
 		this.playerName = compound.getString("PlayerName");
 	}
 
@@ -62,7 +63,8 @@ public class TileEntityAdminChest extends TileEntity implements IInventory{
 	}
 
 	@Override
-	public void setInventorySlotContents(int i, ItemStack itemstack) {}
+	public void setInventorySlotContents(int i, ItemStack itemstack) {
+	}
 
 	@Override
 	public String getInvName() {
@@ -80,10 +82,12 @@ public class TileEntityAdminChest extends TileEntity implements IInventory{
 	}
 
 	@Override
-	public void openChest() {}
+	public void openChest() {
+	}
 
 	@Override
-	public void closeChest() {}
+	public void closeChest() {
+	}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {

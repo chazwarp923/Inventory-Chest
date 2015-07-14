@@ -1,6 +1,6 @@
 /**
 @author Chaz Kerby
-*/
+ */
 package com.chazwarp.invchest.client.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,31 +15,36 @@ import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-public class GuiHandler implements IGuiHandler{
+public class GuiHandler implements IGuiHandler {
 
 	public GuiHandler() {
-		NetworkRegistry.instance().registerGuiHandler(InventoryChest.instance, this);
+		NetworkRegistry.instance().registerGuiHandler(InventoryChest.instance,
+				this);
 	}
-	
+
 	@Override
-	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+	public Object getServerGuiElement(int ID, EntityPlayer player, World world,
+			int x, int y, int z) {
 		switch (ID) {
 		case 0:
 			TileEntity te = world.getBlockTileEntity(x, y, z);
 			if (te != null && te instanceof TileEntityInventoryChest) {
-				return new ContainerInventoryChest(player.inventory, (TileEntityInventoryChest)te);
+				return new ContainerInventoryChest(player.inventory,
+						(TileEntityInventoryChest) te);
 			}
 			break;
 		case 1:
 			TileEntity te1 = world.getBlockTileEntity(x, y, z);
 			if (te1 != null && te1 instanceof TileEntityAdminChest) {
-				return new ContainerAdminChest(player.inventory, (TileEntityAdminChest)te1);
+				return new ContainerAdminChest(player.inventory,
+						(TileEntityAdminChest) te1);
 			}
 			break;
 		case 2:
 			TileEntity te2 = world.getBlockTileEntity(x, y, z);
 			if (te2 != null && te2 instanceof TileEntityHoppingBuffer) {
-				return new ContainerHoppingBuffer(player.inventory, (TileEntityHoppingBuffer)te2);
+				return new ContainerHoppingBuffer(player.inventory,
+						(TileEntityHoppingBuffer) te2);
 			}
 			break;
 		}
@@ -47,24 +52,28 @@ public class GuiHandler implements IGuiHandler{
 	}
 
 	@Override
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world,
+			int x, int y, int z) {
 		switch (ID) {
 		case 0:
 			TileEntity te = world.getBlockTileEntity(x, y, z);
 			if (te != null && te instanceof TileEntityInventoryChest) {
-				return new GuiInventoryChest(player.inventory, (TileEntityInventoryChest)te);
+				return new GuiInventoryChest(player.inventory,
+						(TileEntityInventoryChest) te);
 			}
 			break;
 		case 1:
 			TileEntity te1 = world.getBlockTileEntity(x, y, z);
 			if (te1 != null && te1 instanceof TileEntityAdminChest) {
-				return new GuiAdminChest(player.inventory, (TileEntityAdminChest)te1);
+				return new GuiAdminChest(player.inventory,
+						(TileEntityAdminChest) te1);
 			}
 			break;
 		case 2:
 			TileEntity te2 = world.getBlockTileEntity(x, y, z);
 			if (te2 != null && te2 instanceof TileEntityHoppingBuffer) {
-				return new GuiHoppingBuffer(player.inventory, (TileEntityHoppingBuffer)te2);
+				return new GuiHoppingBuffer(player.inventory,
+						(TileEntityHoppingBuffer) te2);
 			}
 			break;
 		}

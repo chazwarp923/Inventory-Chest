@@ -1,6 +1,6 @@
 /**
 @author Chaz Kerby
-*/
+ */
 
 package com.chazwarp.invchest.eventhandler;
 
@@ -18,19 +18,21 @@ public class DeathEventHandler {
 	@SubscribeEvent
 	public void onDeath(LivingDeathEvent event) {
 		Entity ent = event.entityLiving;
-		EntityPlayer entPlay = (EntityPlayer)ent;
+		EntityPlayer entPlay = (EntityPlayer) ent;
 		double x = ent.posX;
 		double y = ent.posY;
 		double z = ent.posZ;
-		
-		if(ent instanceof EntityPlayer) {
-			
-		ItemStack head = new ItemStack(Items.skull, 1, 3);
-		head.setTagCompound(new NBTTagCompound());
-		head.stackTagCompound.setString("SkullOwner", entPlay.getUniqueID().toString());
-		
-		EntityItem headItem = new EntityItem(entPlay.worldObj, x, y, z, head);
-		entPlay.worldObj.spawnEntityInWorld(headItem);
+
+		if (ent instanceof EntityPlayer) {
+
+			ItemStack head = new ItemStack(Items.skull, 1, 3);
+			head.setTagCompound(new NBTTagCompound());
+			head.stackTagCompound.setString("SkullOwner", entPlay.getUniqueID()
+					.toString());
+
+			EntityItem headItem = new EntityItem(entPlay.worldObj, x, y, z,
+					head);
+			entPlay.worldObj.spawnEntityInWorld(headItem);
 		}
 	}
 }

@@ -1,6 +1,6 @@
 /**
 @author Chaz Kerby
-*/
+ */
 package com.chazwarp.invchest.blocks;
 
 import net.minecraft.block.Block;
@@ -22,40 +22,45 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ModBlocks {
 
 	public static Block inventoryChest;
-	
-		public static void initInventoryChest() {
-			inventoryChest = new BlockInventoryChest(BlockInfo.INVENTORY_CHEST_ID);
-			GameRegistry.registerBlock(inventoryChest, ItemInventoryChest.class, BlockInfo.INVENTORY_CHEST_KEY);
-		}
-		
+
+	public static void initInventoryChest() {
+		inventoryChest = new BlockInventoryChest(BlockInfo.INVENTORY_CHEST_ID);
+		GameRegistry.registerBlock(inventoryChest, ItemInventoryChest.class,
+				BlockInfo.INVENTORY_CHEST_KEY);
+	}
+
 	public static Block adminChest;
-		
-		public static void initAdminChest() {
-			adminChest = new BlockAdminChest(BlockInfo.ADMIN_CHEST_ID);
-			GameRegistry.registerBlock(adminChest, ItemAdminChest.class, BlockInfo.ADMIN_CHEST_KEY);
-		}
-		
+
+	public static void initAdminChest() {
+		adminChest = new BlockAdminChest(BlockInfo.ADMIN_CHEST_ID);
+		GameRegistry.registerBlock(adminChest, ItemAdminChest.class,
+				BlockInfo.ADMIN_CHEST_KEY);
+	}
+
 	public static Block present;
-	
-		public static void initPresent() {
-			present = new BlockPresent();
-			GameRegistry.registerBlock(present, ItemPresent.class, BlockInfo.PRESENT_KEY);
-		}
-		
+
+	public static void initPresent() {
+		present = new BlockPresent();
+		GameRegistry.registerBlock(present, ItemPresent.class,
+				BlockInfo.PRESENT_KEY);
+	}
+
 	public static Block deathChest;
-		
-		public static void initDeathChest() {
-			deathChest = new BlockDeathChest(BlockInfo.DEATH_CHEST_ID);
-			GameRegistry.registerBlock(deathChest, ItemDeathChest.class, BlockInfo.DEATH_CHEST_KEY);
-		}
-		
+
+	public static void initDeathChest() {
+		deathChest = new BlockDeathChest(BlockInfo.DEATH_CHEST_ID);
+		GameRegistry.registerBlock(deathChest, ItemDeathChest.class,
+				BlockInfo.DEATH_CHEST_KEY);
+	}
+
 	public static Block hoppingBuffer;
-		
-		public static void initHoppingBuffer() {
-			hoppingBuffer = new BlockHoppingBuffer(BlockInfo.HOPPING_BUFFER_ID);
-			GameRegistry.registerBlock(hoppingBuffer, ItemHoppingBuffer.class, BlockInfo.HOPPING_BUFFER_KEY);
-		}		
-		
+
+	public static void initHoppingBuffer() {
+		hoppingBuffer = new BlockHoppingBuffer(BlockInfo.HOPPING_BUFFER_ID);
+		GameRegistry.registerBlock(hoppingBuffer, ItemHoppingBuffer.class,
+				BlockInfo.HOPPING_BUFFER_KEY);
+	}
+
 	public static void initBlocks() {
 		initInventoryChest();
 		initAdminChest();
@@ -63,12 +68,17 @@ public class ModBlocks {
 		initDeathChest();
 		initHoppingBuffer();
 	}
-		
+
 	public static void registerTileEntities() {
-		GameRegistry.registerTileEntity(TileEntityInventoryChest.class, BlockInfo.INVENTORY_CHEST_KEY);
-		GameRegistry.registerTileEntity(TileEntityAdminChest.class, BlockInfo.ADMIN_CHEST_KEY);
-		GameRegistry.registerTileEntity(TileEntityPresent.class, BlockInfo.PRESENT_KEY);
-		GameRegistry.registerTileEntity(TileEntityDeathChest.class, BlockInfo.DEATH_CHEST_KEY);
-		GameRegistry.registerTileEntity(TileEntityHoppingBuffer.class, BlockInfo.HOPPING_BUFFER_KEY);
-	}	
+		GameRegistry.registerTileEntity(TileEntityInventoryChest.class,
+				BlockInfo.INVENTORY_CHEST_KEY);
+		GameRegistry.registerTileEntity(TileEntityAdminChest.class,
+				BlockInfo.ADMIN_CHEST_KEY);
+		GameRegistry.registerTileEntity(TileEntityPresent.class,
+				BlockInfo.PRESENT_KEY);
+		GameRegistry.registerTileEntity(TileEntityDeathChest.class,
+				BlockInfo.DEATH_CHEST_KEY);
+		GameRegistry.registerTileEntity(TileEntityHoppingBuffer.class,
+				BlockInfo.HOPPING_BUFFER_KEY);
+	}
 }

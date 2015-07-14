@@ -1,6 +1,6 @@
 /**
 @author Chaz Kerby
-*/
+ */
 
 package com.chazwarp.invchest.blocks;
 
@@ -18,16 +18,17 @@ public class BlockIC extends Block implements ITileEntityProvider {
 	public static String SWORD = "sword";
 	public static String AXE = "axe";
 	public static String PICKAXE = "pickaxe";
-	public static String SHOVEL = "spade";	
-	
+	public static String SHOVEL = "spade";
+
 	public static int WOOD = 0;
 	public static int STONE = 1;
 	public static int IRON = 2;
 	public static int DIAMOND = 3;
-	
-	protected BlockIC(Material mat, float hardness, SoundType sound, String unlocalizedName, String harvestTool, int harvestLevel) {
+
+	protected BlockIC(Material mat, float hardness, SoundType sound,
+			String unlocalizedName, String harvestTool, int harvestLevel) {
 		super(mat);
-		
+
 		setCreativeTab(InvTab.tab);
 		setHardness(hardness);
 		setStepSound(sound);

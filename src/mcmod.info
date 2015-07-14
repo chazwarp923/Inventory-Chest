@@ -1,0 +1,16 @@
+[
+{
+  "modid": "InvChest",
+  "name": "Inventory Chest",
+  "description": "Example placeholder mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["chazwarp923"],
+  "credits": "enderblaze2 & Reika",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
