@@ -15,10 +15,6 @@ public class Shapeless {
 
 	public static void addCrafting() {
 
-		GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.hoppingBuffer),
-				new ItemStack(Block.hopperBlock), new ItemStack(Block.chest));
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(ModBlocks.inventoryChest), new ItemStack(
-						Item.skull, 1, 3), new ItemStack(Block.chest));
+		GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.inventoryChest), new ItemStack(Item.skull, 1, 3), new ItemStack(Block.chest));
 	}
 }

@@ -7,15 +7,17 @@ import net.minecraft.block.Block;
 
 import com.chazwarp.invchest.items.ItemAdminChest;
 import com.chazwarp.invchest.items.ItemDeathChest;
-import com.chazwarp.invchest.items.ItemHoppingBuffer;
 import com.chazwarp.invchest.items.ItemInventoryChest;
-import com.chazwarp.invchest.items.ItemPresent;
 import com.chazwarp.invchest.lib.BlockInfo;
 import com.chazwarp.invchest.tileentity.TileEntityAdminChest;
 import com.chazwarp.invchest.tileentity.TileEntityDeathChest;
-import com.chazwarp.invchest.tileentity.TileEntityHoppingBuffer;
 import com.chazwarp.invchest.tileentity.TileEntityInventoryChest;
-import com.chazwarp.invchest.tileentity.TileEntityPresent;
+import com.chazwarp.miscadditions.blocks.BlockHoppingBuffer;
+import com.chazwarp.miscadditions.blocks.BlockPresent;
+import com.chazwarp.miscadditions.blocks.tileentity.TileEntityHoppingBuffer;
+import com.chazwarp.miscadditions.blocks.tileentity.TileEntityPresent;
+import com.chazwarp.miscadditions.items.ItemHoppingBuffer;
+import com.chazwarp.miscadditions.items.ItemPresent;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -37,14 +39,6 @@ public class ModBlocks {
 				BlockInfo.ADMIN_CHEST_KEY);
 	}
 
-	public static Block present;
-
-	public static void initPresent() {
-		present = new BlockPresent();
-		GameRegistry.registerBlock(present, ItemPresent.class,
-				BlockInfo.PRESENT_KEY);
-	}
-
 	public static Block deathChest;
 
 	public static void initDeathChest() {
@@ -53,20 +47,10 @@ public class ModBlocks {
 				BlockInfo.DEATH_CHEST_KEY);
 	}
 
-	public static Block hoppingBuffer;
-
-	public static void initHoppingBuffer() {
-		hoppingBuffer = new BlockHoppingBuffer(BlockInfo.HOPPING_BUFFER_ID);
-		GameRegistry.registerBlock(hoppingBuffer, ItemHoppingBuffer.class,
-				BlockInfo.HOPPING_BUFFER_KEY);
-	}
-
 	public static void initBlocks() {
 		initInventoryChest();
 		initAdminChest();
-		initPresent();
 		initDeathChest();
-		initHoppingBuffer();
 	}
 
 	public static void registerTileEntities() {
@@ -74,11 +58,7 @@ public class ModBlocks {
 				BlockInfo.INVENTORY_CHEST_KEY);
 		GameRegistry.registerTileEntity(TileEntityAdminChest.class,
 				BlockInfo.ADMIN_CHEST_KEY);
-		GameRegistry.registerTileEntity(TileEntityPresent.class,
-				BlockInfo.PRESENT_KEY);
 		GameRegistry.registerTileEntity(TileEntityDeathChest.class,
 				BlockInfo.DEATH_CHEST_KEY);
-		GameRegistry.registerTileEntity(TileEntityHoppingBuffer.class,
-				BlockInfo.HOPPING_BUFFER_KEY);
 	}
 }
